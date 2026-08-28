@@ -488,14 +488,6 @@ details .corpo{padding:0 16px 15px;font-size:.88rem;color:var(--suave);animation
   padding:2px 16px 4px;letter-spacing:.02em;
 }
 
-/* ---------- Modal da comanda ---------- */
-.modal{position:fixed;inset:0;z-index:120;background:rgba(15,15,15,.62);display:none;align-items:center;justify-content:center;padding:18px}
-.modal.on{display:flex;animation:desliza .28s var(--ease)}
-.modal-card{background:#fff;border-radius:20px;max-width:400px;width:100%;max-height:92vh;overflow-y:auto;padding:20px;text-align:center;box-shadow:var(--sombra-forte)}
-.modal-card h3{font-weight:900;font-size:1.08rem;margin-bottom:4px}
-.modal-card>p{font-size:.82rem;color:var(--suave);margin-bottom:14px}
-.modal-card img{max-width:100%;border:1px dashed var(--linha);border-radius:12px;margin:0 auto 16px;background:#fff}
-.modal-card .btn-zap{margin-bottom:10px}
 </style>
 </head>
 <body>
@@ -759,21 +751,6 @@ details .corpo{padding:0 16px 15px;font-size:.88rem;color:var(--suave);animation
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.83 14.12c-.25.7-1.45 1.33-2.02 1.42-.52.08-1.17.11-1.89-.12-.44-.14-1-.32-1.71-.63-3.02-1.3-4.99-4.34-5.14-4.54-.15-.2-1.23-1.63-1.23-3.11 0-1.48.78-2.21 1.05-2.51.27-.3.6-.38.8-.38.2 0 .4 0 .57.01.18.01.43-.07.67.51.25.6.85 2.07.92 2.22.08.15.13.33.03.53-.1.2-.15.33-.3.5-.15.18-.32.4-.45.53-.15.15-.31.31-.13.61.18.3.79 1.31 1.71 2.12 1.17 1.05 2.16 1.37 2.47 1.53.3.15.48.13.66-.08.18-.2.75-.88.95-1.18.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.5.22.57.35.08.12.08.72-.18 1.42Z"/></svg>
       Enviar pedido no WhatsApp
     </button>
-  </div>
-</div>
-
-<!-- ============ MODAL: COMANDA ============ -->
-<div class="modal" id="modal-comanda">
-  <div class="modal-card">
-    <h3>Comanda gerada! 🧾</h3>
-    <p>Imagem no formato de impressora térmica 58/60mm. Envie no WhatsApp ou baixe para imprimir direto.</p>
-    <img id="comanda-img" alt="Comanda do pedido com itens, nome do cliente e valor total">
-    <button class="btn-zap" id="btn-compartilhar">
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 7l5-4 5 4"/><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>
-      Compartilhar comanda
-    </button>
-    <button class="btn-contorno" id="btn-baixar-comanda" style="margin-bottom:10px">⬇️ Baixar imagem PNG</button>
-    <button class="btn-preto central" id="btn-concluir">Concluir →</button>
   </div>
 </div>
 
@@ -1245,75 +1222,8 @@ function montarResumo() {
 }
 
 /* ============================================================
-   🧾 COMANDA — imagem PNG no formato de impressora térmica 58/60mm
-   (WhatsApp não permite anexar imagem via link, então a comanda
-   é gerada aqui e enviada com 1 toque pelo compartilhamento nativo)
+   Envio do pedido pelo WhatsApp
    ============================================================ */
-let blobComanda = null;
-
-function gerarComanda(nome, end, obs) {
-  const W = 576, M = 30;                 // ~58/60mm de largura útil
-  const cvs = document.createElement("canvas");
-  const g = cvs.getContext("2d");
-  const F = (px, w) => `${w || 400} ${px}px "Archivo", Arial, sans-serif`;
-  const ops = []; let y = M + 6;
-  const med = (t, f) => { g.font = f; return g.measureText(t).width; };
-  const wrap = (t, f, maxW) => {
-    const out = []; let cur = "";
-    t.split(" ").forEach(p => { const tt = cur ? cur + " " + p : p; if (med(tt, f) > maxW && cur) { out.push(cur); cur = p; } else cur = tt; });
-    if (cur) out.push(cur); return out;
-  };
-  const linha = (t, px, w, align, extra) => {
-    const f = F(px, w);
-    wrap(t, f, W - 2 * M).forEach(l => { y += px; ops.push({ t: l, f, align: align || "left", y }); y += (extra == null ? 6 : extra); });
-  };
-  const dupla = (esq, dir, px, w) => { y += px; ops.push({ dl: esq, dr: dir, f: F(px, w || 700), y }); y += 8; };
-  const dash = () => { y += 4; ops.push({ dash: true, y }); y += 12; };
-
-  const agora = new Date();
-  const data = agora.toLocaleDateString("pt-BR") + " " + agora.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
-
-  linha("SABOR NATURAL", 34, 900, "center");
-  linha("comida fitness • Dom Pedro-MA", 20, 600, "center");
-  dash();
-  linha("COMANDA DE PEDIDO", 24, 800, "center");
-  linha(numeroPedido, 46, 900, "center");
-  linha(data, 20, 400, "center");
-  dash();
-  if (nome) linha("Cliente:  " + nome, 22, 700);
-  if (end)  linha("Entrega: " + end, 22, 400);
-  if (obs)  linha("Obs: " + obs, 22, 400);
-  if (nome || end || obs) dash();
-  carrinho.forEach(i => {
-    const total = fmt(i.preco * i.qtd);
-    const f = F(22, 700);
-    const maxW = W - 2 * M - med(total, F(22, 800)) - 16;
-    const linhasI = wrap(`${i.qtd}x ${i.nome}`, f, maxW);
-    y += 22; ops.push({ t: linhasI[0], f, align: "left", y }); ops.push({ dr: total, f: F(22, 800), y }); y += 7;
-    linhasI.slice(1).forEach(l => { y += 22; ops.push({ t: l, f, align: "left", y }); y += 7; });
-  });
-  dash();
-  dupla("Entrega", "GRÁTIS", 24, 700);
-  dupla("TOTAL", fmt(totalPedido()), 34, 900);
-  if (temMarmita()) { dash(); linha("** ENVIAR CARDÁPIO DO DIA DAS MARMITAS **", 21, 800, "center"); }
-  dash();
-  linha("Obrigado pela preferência!", 22, 600, "center");
-  linha("WhatsApp (99) 9233-8700", 20, 400, "center");
-  y += M;
-
-  cvs.width = W; cvs.height = Math.ceil(y);
-  const r = cvs.getContext("2d");
-  r.fillStyle = "#fff"; r.fillRect(0, 0, W, cvs.height);
-  ops.forEach(o => {
-    if (o.dash) { r.fillStyle = "#000"; for (let xx = M; xx < W - M; xx += 14) r.fillRect(xx, o.y, 8, 3); return; }
-    r.font = o.f; r.fillStyle = "#000";
-    if (o.dr !== undefined) { r.textAlign = "right"; r.fillText(o.dr, W - M, o.y); }
-    if (o.dl !== undefined || o.t) { r.textAlign = (o.align === "center") ? "center" : "left"; r.fillText(o.dl !== undefined ? o.dl : o.t, o.align === "center" ? W / 2 : M, o.y); }
-  });
-  cvs.toBlob(b => { blobComanda = b; $("#comanda-img").src = URL.createObjectURL(b); }, "image/png");
-}
-
-/* Envio WhatsApp */
 $("#btn-zap").addEventListener("click", () => {
   const nome = $("#c-nome").value.trim(), end = $("#c-end").value.trim(), obs = $("#c-obs").value.trim();
   const num = numeroPedido;
@@ -1324,39 +1234,16 @@ $("#btn-zap").addEventListener("click", () => {
   if (nome) msg += `\n\n👤 Nome: ${nome}`;
   if (end)  msg += `\n📍 Endereço: ${end}`;
   if (obs)  msg += `\n📝 Obs: ${obs}`;
-  msg += `\n\n🧾 _A comanda em imagem será enviada a seguir._`;
   window.open("https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(msg), "_blank");
 
-  // Gera a comanda (antes de limpar) e abre o modal
-  gerarComanda(nome, end, obs);
-  $("#modal-comanda").dataset.num = num.replace("#", "");
-  $("#modal-comanda").classList.add("on");
   // Limpa TUDO para o próximo pedido (itens, número e dados pessoais)
   carrinho = []; numeroPedido = "";
   localStorage.removeItem("sn_carrinho"); localStorage.removeItem("sn_numero");
   $("#c-nome").value = ""; $("#c-end").value = ""; $("#c-obs").value = "";
   atualizarUI(); telaResumo.classList.remove("aberta");
-});
 
-/* Compartilhar / baixar a comanda */
-$("#btn-compartilhar").addEventListener("click", async () => {
-  if (!blobComanda) return;
-  const arq = new File([blobComanda], "comanda-" + ($("#modal-comanda").dataset.num || "pedido") + ".png", { type: "image/png" });
-  if (navigator.canShare && navigator.canShare({ files: [arq] })) {
-    try { await navigator.share({ files: [arq], title: "Comanda do pedido" }); return; }
-    catch (e) { if (e.name === "AbortError") return; }
-  }
-  $("#btn-baixar-comanda").click(); // fallback: baixa a imagem
-});
-$("#btn-baixar-comanda").addEventListener("click", () => {
-  if (!blobComanda) return;
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(blobComanda);
-  a.download = "comanda-" + ($("#modal-comanda").dataset.num || "pedido") + ".png";
-  a.click(); toast("Comanda baixada! 🧾");
-});
-$("#btn-concluir").addEventListener("click", () => {
-  location.href = "obrigado.html?n=" + ($("#modal-comanda").dataset.num || "");
+  // Tela de obrigado
+  location.href = "obrigado.html?n=" + num.replace("#", "");
 });
 
 /* WhatsApp flutuante */
