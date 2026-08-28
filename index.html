@@ -160,8 +160,10 @@ header + .pills-wrap{top:0}
 
 /* ---------- Hero ---------- */
 .hero{background:var(--pastel);padding:26px 20px 24px;text-align:center;position:relative;overflow:hidden}
-.hero h1{font-size:1.7rem;font-weight:900;letter-spacing:-.03em;line-height:1.15;color:var(--preto)}
-.hero p{color:#2c5137;font-size:.92rem;margin:8px 0 14px;font-weight:600}
+.hero .eyebrow{font-size:.68rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--verde);margin-bottom:6px}
+.hero h1{font-size:1.62rem;font-weight:900;letter-spacing:-.03em;line-height:1.15;color:var(--preto)}
+.hero h1 span{color:var(--verde)}
+.hero .sub{color:#2c5137;font-size:.9rem;margin:8px auto 14px;font-weight:600;max-width:40ch}
 .hero-meta{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
 .chip{
   background:#fff;border-radius:999px;padding:7px 13px;font-size:.76rem;font-weight:800;
@@ -240,8 +242,17 @@ header + .pills-wrap{top:0}
   font-size:.78rem;color:var(--suave);margin-top:3px;
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
 }
-.card .corpo .p-preco{margin-top:7px;font-size:.92rem;font-weight:900;color:var(--preto)}
+.card .corpo .p-preco{margin-top:7px;font-size:.96rem;font-weight:900;color:var(--preto)}
 .card .corpo .p-preco small{font-weight:700;color:var(--suave);font-size:.72rem}
+
+/* Badge sobre a foto do card (prova social / destaque) */
+.badge-card{
+  position:absolute;top:8px;left:8px;z-index:2;font-size:.64rem;font-weight:900;
+  letter-spacing:.02em;padding:5px 10px;border-radius:999px;box-shadow:0 2px 8px rgba(0,0,0,.18);
+}
+.badge-card.fogo{background:#ff4d33;color:#fff}
+.badge-card.zero{background:#e3f8ec;color:#067a46}
+.badge-card.novo{background:#fff;color:#1c1c1c}
 
 /* Resultados de busca */
 .resultados{padding:8px 16px 30px;display:none}
@@ -256,6 +267,33 @@ header + .pills-wrap{top:0}
 .res-linha span{font-size:.76rem;color:var(--suave)}
 .res-linha .pr{font-weight:900;font-size:.9rem;white-space:nowrap}
 .res-vazio{text-align:center;color:var(--suave);padding:34px 16px;font-size:.9rem}
+
+/* ---------- Upsell "complete seu pedido" / "leve junto" ---------- */
+.sugs{display:flex;gap:10px;margin-bottom:4px}
+.sug{
+  flex:1;min-width:0;display:flex;align-items:center;gap:10px;background:#fff;
+  border:1.5px solid var(--linha);border-radius:14px;padding:9px 10px;text-align:left;
+  transition:border-color .15s, transform .12s;
+}
+.sug:active{transform:scale(.96);border-color:var(--verde)}
+.sug img{width:44px;height:44px;border-radius:10px;object-fit:cover;flex-shrink:0}
+.sug .s-txt{flex:1;min-width:0}
+.sug .s-txt strong{display:block;font-size:.78rem;font-weight:800;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sug .s-txt small{font-size:.74rem;color:var(--verde);font-weight:800}
+.sug .s-add{width:26px;height:26px;border-radius:50%;background:var(--preto);color:#fff;display:grid;place-items:center;font-size:1rem;font-weight:700;flex-shrink:0}
+
+/* ---------- Como pedir (3 passos) ---------- */
+.passos{display:flex;flex-direction:column;gap:10px}
+.passo{
+  display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--linha);
+  border-radius:16px;padding:14px 16px;box-shadow:var(--sombra);
+}
+.passo .p-num{
+  width:34px;height:34px;border-radius:50%;background:var(--preto);color:#fff;
+  font-weight:900;display:grid;place-items:center;font-size:.9rem;flex-shrink:0;
+}
+.passo strong{display:block;font-size:.92rem;font-weight:800}
+.passo span{font-size:.78rem;color:var(--suave)}
 
 /* ---------- Rodapé ---------- */
 footer{background:var(--preto);color:#bdbdbd;padding:30px 20px 44px;margin-top:14px}
@@ -519,13 +557,14 @@ details .corpo{padding:0 16px 15px;font-size:.88rem;color:var(--suave);animation
 
   <!-- ============ HERO ============ -->
   <section class="hero reveal">
-    <h1>Bistrô & Confeitaria Fitness</h1>
-    <p>Comidas saudáveis & low carb • Lanches saudáveis & sucos detox</p>
+    <p class="eyebrow">Bistrô & Confeitaria Fitness</p>
+    <h1>Comida saudável com <span>entrega grátis</span> 🛵</h1>
+    <p class="sub">Marmitas, lanches low carb, doces fit e sucos detox — feitos na hora em Dom Pedro-MA.</p>
     <div class="hero-meta">
       <span class="chip"><span class="dot"></span> Entrega grátis</span>
       <span class="chip">📍 Dom Pedro — MA</span>
-      <span class="chip">🥗 100% natural</span>
       <span class="chip chip-rapido">⚡ Resposta em minutos</span>
+      <span class="chip">❤️ 2,7 mil no Instagram</span>
     </div>
     <!-- CTA principal acima da dobra -->
     <div class="hero-cta">
@@ -538,7 +577,7 @@ details .corpo{padding:0 16px 15px;font-size:.88rem;color:var(--suave);animation
     <span class="p-icone">🛵</span>
     <div>
       <strong>Entrega GRÁTIS</strong>
-      <span>Sem taxa de entrega em toda Dom Pedro — direto pro seu WhatsApp</span>
+      <span>Sem taxa e sem pedido mínimo em toda Dom Pedro — direto pro seu WhatsApp</span>
     </div>
   </div>
 
@@ -564,9 +603,26 @@ details .corpo{padding:0 16px 15px;font-size:.88rem;color:var(--suave);animation
     </div>
   </section>
 
+  <!-- ============ MAIS PEDIDOS (prova social) ============ -->
+  <section class="reveal" id="mais-pedidos">
+    <div class="titulos"><h2>🔥 Mais pedidos</h2><span>os queridinhos da casa</span></div>
+    <div class="trilho" id="trilho-populares"></div>
+  </section>
+
   <!-- ============ CATEGORIAS (render via JS) ============ -->
   <p class="nota-ilustrativa">📷 Imagens meramente ilustrativas</p>
   <div id="menu"></div>
+
+  <!-- ============ COMO PEDIR ============ -->
+  <section class="secao reveal" id="como-pedir">
+    <h2>Como pedir 👇</h2>
+    <p class="sub">Leva menos de 1 minuto</p>
+    <div class="passos">
+      <div class="passo"><div class="p-num">1</div><div><strong>Monte seu pedido</strong><span>Escolha itens e sabores no cardápio</span></div></div>
+      <div class="passo"><div class="p-num">2</div><div><strong>Revise e confirme</strong><span>Nome, endereço e observações</span></div></div>
+      <div class="passo"><div class="p-num">3</div><div><strong>Receba quentinho</strong><span>Enviamos pelo WhatsApp e entregamos grátis 🛵</span></div></div>
+    </div>
+  </section>
 
   <!-- ============ PERGUNTAS FREQUENTES ============ -->
   <section class="secao reveal" id="faq">
@@ -673,6 +729,7 @@ details .corpo{padding:0 16px 15px;font-size:.88rem;color:var(--suave);animation
     <p style="font-size:.68rem;color:#9a9a94;margin:-10px 0 14px">📷 imagem ilustrativa</p>
     <div id="f-aviso"></div>
     <div id="f-sabores"></div>
+    <div id="f-sugestoes"></div>
     <div class="stepper">
       <button id="st-menos">−</button>
       <span id="st-qtd">1</span>
@@ -702,6 +759,10 @@ details .corpo{padding:0 16px 15px;font-size:.88rem;color:var(--suave);animation
     <div class="carda" id="carda-aviso-marmita" style="display:none">
       <div class="resumo-msg" style="margin-top:0">🍱 Ao enviar, já vai junto a solicitação do <strong>cardápio do dia das marmitas</strong>!</div>
     </div>
+    <div class="carda" id="carda-leve" style="display:none">
+      <h4>Leve junto 🍀</h4>
+      <div class="sugs" id="leve-itens"></div>
+    </div>
     <div class="carda">
       <h4>Seus dados</h4>
       <input class="campo" id="c-nome" type="text" placeholder="👤 Seu nome">
@@ -712,6 +773,7 @@ details .corpo{padding:0 16px 15px;font-size:.88rem;color:var(--suave);animation
       <div class="tl"><span>Subtotal</span><span id="s-sub">R$ 0,00</span></div>
       <div class="tl"><span>Entrega</span><span class="gratis">GRÁTIS 🎉</span></div>
       <div class="tl total"><span>Total</span><span id="s-total">R$ 0,00</span></div>
+      <div style="font-size:.74rem;color:var(--verde);font-weight:700;margin-top:8px">💚 Sem taxa e sem pedido mínimo — pode pedir mais sem medo!</div>
     </div>
   </div>
   <div class="tela-rodape">
@@ -928,6 +990,22 @@ const IMG_ITEM = {
 };
 CATEGORIAS.forEach(c => c.itens.forEach(it => { if (IMG_ITEM[it.nome]) it.imagem = IMG_ITEM[it.nome]; }));
 
+/* Selo/badge por item (prova social + destaque) */
+const SELO = {
+  "Panqueca Zero":         {tipo:"zero", txt:"💚 Low carb"},
+  "Crepioca":              {tipo:"novo", txt:"✨ Leve & fit"},
+  "Natubúrguer":           {tipo:"fogo", txt:"🔥 Mais pedido"},
+  "Tapioca Recheada":      {tipo:"novo", txt:"⭐ Queridinho"},
+  "Sanduíche Sabor Pizza": {tipo:"fogo", txt:"🍕 Sabor pizza"},
+  "Sanduíche Natural":     {tipo:"zero", txt:"💚 Leve"},
+  "Bolo de Banana":        {tipo:"zero", txt:"🍌 Sem açúcar refinado"},
+  "Brownie Fit":           {tipo:"novo", txt:"🍫 Fit"},
+  "Suco Verde":            {tipo:"zero", txt:"🥬 Detox"},
+  "Suco Vermelho":         {tipo:"zero", txt:"🍓 Detox"},
+  "Abacaxi com Hortelã":   {tipo:"novo", txt:"🍍 Refrescante"}
+};
+CATEGORIAS.forEach(c => c.itens.forEach(it => { if (SELO[it.nome]) it.selo = SELO[it.nome]; }));
+
 /* Mapa de busca */
 const INDICE = [];
 CATEGORIAS.forEach((c, ci) => c.itens.forEach((it, ii) => {
@@ -974,27 +1052,52 @@ function precoCard(it) {
   const ps = it.sabores.map(s => s.preco), min = Math.min(...ps), max = Math.max(...ps);
   return min === max ? fmt(min) : `<small>a partir de</small> ` + fmt(min);
 }
+function seloHTML(it) {
+  if (!it.selo) return "";
+  const cls = it.selo.tipo === "fogo" ? "fogo" : it.selo.tipo === "novo" ? "novo" : "zero";
+  return `<span class="badge-card ${cls}">${it.selo.txt}</span>`;
+}
+function cardHTML(c, it, ii) {
+  const ci = CATEGORIAS.indexOf(c);
+  return `<button class="card" data-ci="${ci}" data-ii="${ii}">
+    <div class="imagem">
+      <img src="${it.imagem || c.imagem}" alt="${it.nome} — Sabor Natural, comida fitness em Dom Pedro MA" loading="lazy">
+      ${seloHTML(it)}
+      <span class="mais">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+      </span>
+    </div>
+    <div class="corpo">
+      <h3>${it.nome}</h3>
+      <p>${it.sabores ? resumoSabores(it) : it.desc}</p>
+      <div class="p-preco">${precoCard(it)}</div>
+    </div>
+  </button>`;
+}
 
 sec.innerHTML = CATEGORIAS.map(c => `
   <section id="cat-${c.id}" class="reveal">
     <div class="titulos"><h2>${c.emoji} ${c.nome}</h2><span>${c.sub}</span></div>
     <div class="trilho">
-      ${c.itens.map((it, ii) => `
-        <button class="card" data-ci="${CATEGORIAS.indexOf(c)}" data-ii="${ii}">
-          <div class="imagem">
-            <img src="${it.imagem || c.imagem}" alt="${it.nome} — Sabor Natural, comida fitness em Dom Pedro MA" loading="lazy">
-            <span class="mais">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-            </span>
-          </div>
-          <div class="corpo">
-            <h3>${it.nome}</h3>
-            <p>${it.sabores ? resumoSabores(it) : it.desc}</p>
-            <div class="p-preco">${precoCard(it)}</div>
-          </div>
-        </button>`).join("")}
+      ${c.itens.map((it, ii) => cardHTML(c, it, ii)).join("")}
     </div>
   </section>`).join("");
+
+/* 🔥 Mais pedidos (prova social — reusa os cards e abre a mesma folha) */
+const ciOf = id => CATEGORIAS.findIndex(c => c.id === id);
+const POPULARES = [
+  { ci: ciOf("natuburguer"), ii: 0 },
+  { ci: ciOf("tapioca"), ii: 0 },
+  { ci: ciOf("panqueca"), ii: 0 },
+  { ci: ciOf("sanduiches"), ii: 0 },
+  { ci: ciOf("sucos"), ii: 0 },
+  { ci: ciOf("doces"), ii: 1 }
+];
+$("#trilho-populares").innerHTML = POPULARES.map(p => cardHTML(CATEGORIAS[p.ci], CATEGORIAS[p.ci].itens[p.ii], p.ii)).join("");
+$("#mais-pedidos").addEventListener("click", e => {
+  const card = e.target.closest("[data-ci]");
+  if (card) abrirItem(Number(card.dataset.ci), Number(card.dataset.ii));
+});
 
 /* Abrir item ao clicar no card */
 sec.addEventListener("click", e => {
@@ -1089,6 +1192,7 @@ function abrirItem(ci, ii) {
         <span class="o-nome">${s.nome}</span>
         <span class="o-preco">${fmt(s.preco)}</span>
       </button>`).join("")}` : "";
+  $("#f-sugestoes").innerHTML = renderSugestoes(editando.cat, editando.item);
   $("#st-qtd").textContent = "1";
   atualizarFolha();
   backdrop.classList.add("on");
@@ -1132,10 +1236,63 @@ $("#card-marmita").addEventListener("click", () => {
   $("#f-desc").textContent = MARMITA.desc;
   $("#f-aviso").innerHTML = `<div class="aviso">🍱 Ao enviar o pedido, a gente te manda o <strong>cardápio do dia das marmitas</strong> no WhatsApp!</div>`;
   $("#f-sabores").innerHTML = "";
+  $("#f-sugestoes").innerHTML = renderSugestoes(editando.cat, editando.item);
   $("#st-qtd").textContent = "1";
   atualizarFolha();
   backdrop.classList.add("on");
   folha.classList.add("aberta");
+});
+
+/* ============================================================
+   Upsell — "complete seu pedido" (folha) e "leve junto" (sacola)
+   ============================================================ */
+function itemPorId(catId, nome) {
+  const c = CATEGORIAS.find(c => c.id === catId);
+  if (!c) return null;
+  const it = c.itens.find(i => i.nome === nome);
+  return it ? { c, it } : null;
+}
+function sugHTML(c, it) {
+  const preco = it.sabores ? Math.min(...it.sabores.map(s => s.preco)) : it.preco;
+  return `<button class="sug" data-sci="${CATEGORIAS.indexOf(c)}" data-sii="${c.itens.indexOf(it)}">
+    <img src="${it.imagem || c.imagem}" alt="${it.nome}">
+    <span class="s-txt"><strong>${it.nome}</strong><small>+ ${fmt(preco)}</small></span>
+    <span class="s-add">+</span>
+  </button>`;
+}
+function sugestoesPara(cat, item) {
+  const catId = cat ? cat.id : "";
+  const suco = itemPorId("sucos", "Suco Verde");
+  const doce = itemPorId("doces", "Brownie Fit");
+  const sugs = [];
+  if (catId !== "sucos" && catId !== "doces") {
+    sugs.push(suco, doce);
+  } else if (catId === "sucos") {
+    sugs.push(doce, itemPorId("sanduiches", "Sanduíche Natural"));
+  } else {
+    sugs.push(suco, itemPorId("tapioca", "Tapioca Recheada"));
+  }
+  return sugs.filter(Boolean);
+}
+function renderSugestoes(cat, item) {
+  const sugs = sugestoesPara(cat, item);
+  if (!sugs.length) return "";
+  return `<div class="grupo-titulo" style="margin-top:6px">Complete seu pedido <small>LEVE JUNTO 💚</small></div>
+  <div class="sugs">${sugs.map(s => sugHTML(s.c, s.it)).join("")}</div>`;
+}
+function quickAdd(cat, item) {
+  const sabor = item.sabores ? item.sabores[0] : null;
+  const nome = item.nome + (sabor ? ` (${sabor.nome})` : "");
+  const preco = sabor ? sabor.preco : item.preco;
+  adicionar({ nome, preco, especial: item.especial, imagem: imgDe(item, cat) }, 1);
+  renderSacola();
+  toast(item.nome + " adicionado ✅");
+}
+$("#f-sugestoes").addEventListener("click", e => {
+  const b = e.target.closest("[data-sci]");
+  if (!b) return;
+  const c = CATEGORIAS[Number(b.dataset.sci)], it = c.itens[Number(b.dataset.sii)];
+  quickAdd(c, it);
 });
 
 /* ============================================================
@@ -1182,7 +1339,24 @@ function renderSacola() {
   $("#carda-aviso-marmita").style.display = carrinho.length && temMarmita() ? "block" : "none";
   $("#s-sub").textContent = fmt(totalPedido());
   $("#s-total").textContent = fmt(totalPedido());
+  renderLeveJunto();
 }
+/* Cross-sell na sacola: sugere suco + doce que ainda não estão no pedido */
+function renderLeveJunto() {
+  const sugs = [itemPorId("sucos", "Suco Verde"), itemPorId("doces", "Brownie Fit")]
+    .filter(Boolean)
+    .filter(({ it }) => !carrinho.some(k => k.nome.startsWith(it.nome)));
+  const el = $("#carda-leve");
+  if (!carrinho.length || !sugs.length) { el.style.display = "none"; return; }
+  el.style.display = "block";
+  $("#leve-itens").innerHTML = sugs.map(s => sugHTML(s.c, s.it)).join("");
+}
+$("#leve-itens").addEventListener("click", e => {
+  const b = e.target.closest("[data-sci]");
+  if (!b) return;
+  const c = CATEGORIAS[Number(b.dataset.sci)], it = c.itens[Number(b.dataset.sii)];
+  quickAdd(c, it);
+});
 $("#sacola-itens").addEventListener("click", e => {
   const b = e.target.closest("button[data-a]");
   if (b) mudarQtd(decodeURIComponent(b.dataset.n), b.dataset.a === "+" ? 1 : -1);
