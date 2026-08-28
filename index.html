@@ -492,6 +492,12 @@ details .corpo{padding:0 16px 15px;font-size:.88rem;color:var(--suave);animation
 .f-links a{font-size:.8rem;color:#dcdcdc;border:1px solid #3a3a3a;border-radius:999px;padding:7px 14px;transition:background .2s}
 .f-links a:hover{background:#262626}
 
+/* Nota de imagens ilustrativas */
+.nota-ilustrativa{
+  text-align:center;font-size:.72rem;color:var(--suave);font-weight:600;
+  padding:2px 16px 4px;letter-spacing:.02em;
+}
+
 /* ---------- Modal da comanda ---------- */
 .modal{position:fixed;inset:0;z-index:120;background:rgba(15,15,15,.62);display:none;align-items:center;justify-content:center;padding:18px}
 .modal.on{display:flex;animation:desliza .28s var(--ease)}
@@ -578,6 +584,7 @@ details .corpo{padding:0 16px 15px;font-size:.88rem;color:var(--suave);animation
   </section>
 
   <!-- ============ CATEGORIAS (render via JS) ============ -->
+  <p class="nota-ilustrativa">📷 Imagens meramente ilustrativas</p>
   <div id="menu"></div>
 
   <!-- ============ AVALIAÇÕES ============ -->
@@ -682,7 +689,7 @@ details .corpo{padding:0 16px 15px;font-size:.88rem;color:var(--suave);animation
       @sabornaturalfit_dp
     </a>
     <div style="margin-top:12px;font-size:.82rem">📱 <a href="https://wa.me/559992338700" target="_blank" rel="noopener" style="color:#fff">(99) 9233-8700</a> • 🛵 Entrega grátis</div>
-    <p class="cred">Sabor Natural 🥗 comida fitness feita com carinho</p>
+    <p class="cred">Fotos do cardápio meramente ilustrativas • Sabor Natural 🥗 comida fitness feita com carinho</p>
   </footer>
 
 </div><!-- /app -->
@@ -710,6 +717,7 @@ details .corpo{padding:0 16px 15px;font-size:.88rem;color:var(--suave);animation
     <h2 id="f-nome">Item</h2>
     <div class="f-preco" id="f-preco"></div>
     <p class="f-desc" id="f-desc"></p>
+    <p style="font-size:.68rem;color:#9a9a94;margin:-10px 0 14px">📷 imagem ilustrativa</p>
     <div id="f-aviso"></div>
     <div id="f-sabores"></div>
     <div class="stepper">
