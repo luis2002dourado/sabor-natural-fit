@@ -13,7 +13,7 @@ construção a maior parte dos riscos da lista. Segue o status item a item:
 | 5 | Autenticação no lado do servidor | ➖ N/A — não há backend nem contas de usuário |
 | 6 | Restringir acesso aos registros | ➖ N/A |
 | 7 | Impedir adulteração de campos | ✅ Não há formulários com envio a servidor; preços/itens vêm só do cardápio interno do site |
-| 8 | Proteger cookies de sessão | ✅ Não usamos cookies de sessão; dados do cliente ficam no `localStorage` do próprio aparelho |
+| 8 | Proteger cookies de sessão | ✅ Sem cookies de sessão; nome/endereço do cliente **não são salvos** (campos sempre limpos); só os itens da sacola ficam no `localStorage` do aparelho |
 | 9 | Senhas com hash | ➖ N/A — não há senhas |
 | 10 | Limitar tentativas de login | ➖ N/A — não há login |
 | 11 | Proteção contra bots | ➖ N/A — não há formulário postável; pedidos saem pelo WhatsApp (app já valida spam) |

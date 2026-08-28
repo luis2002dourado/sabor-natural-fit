@@ -159,8 +159,7 @@ header + .pills-wrap{top:0}
 .pill.ativa{background:var(--preto);color:#fff;border-color:var(--preto)}
 
 /* ---------- Hero ---------- */
-.hero{background:var(--pastel);padding:20px 20px 24px;text-align:center;position:relative;overflow:hidden}
-.hero img.logo-grande{width:min(220px,62%);margin:0 auto 12px;mix-blend-mode:multiply}
+.hero{background:var(--pastel);padding:26px 20px 24px;text-align:center;position:relative;overflow:hidden}
 .hero h1{font-size:1.7rem;font-weight:900;letter-spacing:-.03em;line-height:1.15;color:var(--preto)}
 .hero p{color:#2c5137;font-size:.92rem;margin:8px 0 14px;font-weight:600}
 .hero-meta{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
@@ -463,15 +462,6 @@ footer .cred{margin-top:16px;font-size:.72rem;color:#7c7c7c;text-align:center}
 .secao h2{font-size:1.3rem;font-weight:900;letter-spacing:-.02em;margin-bottom:4px}
 .secao .sub{font-size:.84rem;color:var(--suave);margin-bottom:16px}
 
-/* Avaliações */
-.notas{display:flex;align-items:center;gap:8px;margin-bottom:14px}
-.notas .num{font-size:2rem;font-weight:900}
-.notas .estrelas{color:#f5b301;font-size:1.15rem;letter-spacing:2px}
-.rev{background:#fff;border:1px solid var(--linha);border-radius:16px;padding:16px;margin-bottom:12px;box-shadow:var(--sombra)}
-.rev .estrelas{color:#f5b301;font-size:.9rem;margin-bottom:6px}
-.rev p{font-size:.9rem;margin-bottom:10px}
-.rev .quem{font-size:.76rem;font-weight:800;color:var(--suave);text-transform:uppercase;letter-spacing:.06em}
-
 /* FAQ */
 details{background:#fff;border:1px solid var(--linha);border-radius:14px;margin-bottom:10px;overflow:hidden}
 summary{list-style:none;cursor:pointer;padding:15px 16px;font-weight:800;font-size:.92rem;display:flex;justify-content:space-between;align-items:center;gap:10px}
@@ -537,7 +527,6 @@ details .corpo{padding:0 16px 15px;font-size:.88rem;color:var(--suave);animation
 
   <!-- ============ HERO ============ -->
   <section class="hero reveal">
-    <img class="logo-grande" src="assets/logo.jpg" alt="Sabor Natural — comida fitness">
     <h1>Bistrô & Confeitaria Fitness</h1>
     <p>Comidas saudáveis & low carb • Lanches saudáveis & sucos detox</p>
     <div class="hero-meta">
@@ -586,33 +575,6 @@ details .corpo{padding:0 16px 15px;font-size:.88rem;color:var(--suave);animation
   <!-- ============ CATEGORIAS (render via JS) ============ -->
   <p class="nota-ilustrativa">📷 Imagens meramente ilustrativas</p>
   <div id="menu"></div>
-
-  <!-- ============ AVALIAÇÕES ============ -->
-  <!-- TROCAR: substituir pelos prints/avaliações reais dos clientes -->
-  <section class="secao reveal" id="avaliacoes">
-    <h2>Quem pediu, aprovou ⭐</h2>
-    <p class="sub">Cases de sucesso de quem já é fã da casa</p>
-    <div class="notas">
-      <span class="num">5.0</span>
-      <span class="estrelas">★★★★★</span>
-      <span style="font-size:.8rem;color:var(--suave);font-weight:700">avaliação dos clientes</span>
-    </div>
-    <div class="rev">
-      <div class="estrelas">★★★★★</div>
-      <p>"A marmita muda todo dia e nunca decepciona. Comida fresquinha, temperada na medida, e a entrega chega voando — sem taxa!"</p>
-      <span class="quem">Mariana S. — cliente desde 2024</span>
-    </div>
-    <div class="rev">
-      <div class="estrelas">★★★★★</div>
-      <p>"O natubúrguer é absurdo de bom. Virou meu lanche de sexta sem culpa nenhuma. Pedido pelo WhatsApp é rapidinho."</p>
-      <span class="quem">Carlos E. —Dom Pedro</span>
-    </div>
-    <div class="rev">
-      <div class="estrelas">★★★★★</div>
-      <p>"Suco verde gelado, crepioca maravilhosa e atendimento nota dez. Perdi as contas de quantas vezes pedi."</p>
-      <span class="quem">Ana Paula — bairro Cândido Hermes</span>
-    </div>
-  </section>
 
   <!-- ============ PERGUNTAS FREQUENTES ============ -->
   <section class="secao reveal" id="faq">
@@ -679,7 +641,6 @@ details .corpo{padding:0 16px 15px;font-size:.88rem;color:var(--suave);animation
       <a href="#cat-sanduiches">🥪 Sanduíches</a>
       <a href="#cat-sucos">🥤 Sucos</a>
       <a href="#cat-doces">🍫 Doces</a>
-      <a href="#avaliacoes">⭐ Avaliações</a>
       <a href="#faq">❓ Dúvidas</a>
       <a href="#localizacao">📍 Como chegar</a>
       <a href="privacidade.html">🔒 Privacidade</a>
@@ -959,9 +920,10 @@ try { carrinho = JSON.parse(localStorage.getItem("sn_carrinho") || "[]"); } catc
 let numeroPedido = localStorage.getItem("sn_numero") || "";
 
 function salvar() { localStorage.setItem("sn_carrinho", JSON.stringify(carrinho)); }
+/* Número de pedido ÚNICO: baseado em data/hora (nunca se repete) */
 function garantirNumero() {
   if (!numeroPedido) {
-    numeroPedido = "#" + Math.floor(1000 + Math.random() * 9000);
+    numeroPedido = "#" + Date.now().toString(36).toUpperCase();
     localStorage.setItem("sn_numero", numeroPedido);
   }
 }
@@ -1248,21 +1210,11 @@ $("#sacola-itens").addEventListener("click", e => {
   const b = e.target.closest("button[data-a]");
   if (b) mudarQtd(decodeURIComponent(b.dataset.n), b.dataset.a === "+" ? 1 : -1);
 });
-function abrirSacola() { renderSacola(); restaurarCampos(); telaSacola.classList.add("aberta"); }
+/* PRIVACIDADE: nome/endereço NUNCA são salvos — campos iniciam sempre limpos */
+function abrirSacola() { renderSacola(); telaSacola.classList.add("aberta"); }
 $("#btn-sacola").addEventListener("click", abrirSacola);
 $("#barra").addEventListener("click", abrirSacola);
 $("#v-sacola").addEventListener("click", () => telaSacola.classList.remove("aberta"));
-
-/* Persistência simples de nome/endereço */
-function restaurarCampos() {
-  try {
-    const c = JSON.parse(localStorage.getItem("sn_cliente") || "{}");
-    $("#c-nome").value = c.nome || ""; $("#c-end").value = c.end || "";
-  } catch(e) {}
-}
-["#c-nome", "#c-end"].forEach(sel => $(sel).addEventListener("input", () => {
-  localStorage.setItem("sn_cliente", JSON.stringify({ nome: $("#c-nome").value, end: $("#c-end").value }));
-}));
 
 /* ============================================================
    Resumo
@@ -1379,9 +1331,10 @@ $("#btn-zap").addEventListener("click", () => {
   gerarComanda(nome, end, obs);
   $("#modal-comanda").dataset.num = num.replace("#", "");
   $("#modal-comanda").classList.add("on");
-  // Limpa a sacola para o próximo pedido
+  // Limpa TUDO para o próximo pedido (itens, número e dados pessoais)
   carrinho = []; numeroPedido = "";
   localStorage.removeItem("sn_carrinho"); localStorage.removeItem("sn_numero");
+  $("#c-nome").value = ""; $("#c-end").value = ""; $("#c-obs").value = "";
   atualizarUI(); telaResumo.classList.remove("aberta");
 });
 
