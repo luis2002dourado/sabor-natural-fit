@@ -1,0 +1,5 @@
+# Segredos e arquivos locais
+.env
+*.secret
+.DS_Store
+__pycache__/

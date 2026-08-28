@@ -1,0 +1,13 @@
+# Cabeçalhos de segurança — formato Netlify (funciona também no Cloudflare Pages)
+# Na Vercel, o equivalente vai no vercel.json → ver SEGURANCA.md
+
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), camera=(), microphone=()
+  Cross-Origin-Opener-Policy: same-origin-allow-popups
+
+/assets/*
+  Cache-Control: public, max-age=86400

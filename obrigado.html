@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pedido enviado! 🎉 — Sabor Natural</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Seu pedido foi enviado para o Sabor Natural.">
+<link rel="icon" href="assets/logo.jpg">
+<style>
+  :root{--verde:#008e3a;--pastel:#a5d1a0;--preto:#141414}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--pastel);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;text-align:center}
+  .card{background:#fff;border-radius:24px;padding:36px 28px;max-width:420px;box-shadow:0 16px 44px rgba(0,102,42,.2);animation:sobe .5s cubic-bezier(.22,.9,.3,1)}
+  @keyframes sobe{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+  img{width:96px;height:96px;border-radius:24px;margin:0 auto 16px}
+  h1{font-size:1.5rem;font-weight:900;letter-spacing:-.02em;margin-bottom:8px}
+  .num{display:inline-block;background:#edf6ea;color:var(--verde);font-weight:900;font-size:1.2rem;border-radius:12px;padding:6px 18px;margin:8px 0 12px}
+  p{color:#5f7164;font-size:.92rem;margin-bottom:18px;line-height:1.6}
+  .passos{text-align:left;background:#f6f6f6;border-radius:14px;padding:14px 16px;margin-bottom:20px;font-size:.88rem}
+  .passos div{padding:4px 0}
+  .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:15px;border-radius:14px;font-weight:800;font-size:.95rem;text-decoration:none;margin-bottom:10px}
+  .btn-zap{background:#18c05e;color:#fff}
+  .btn-site{background:var(--preto);color:#fff}
+</style>
+</head>
+<body>
+  <div class="card">
+    <img src="assets/logo.jpg" alt="Logo Sabor Natural — comida fitness">
+    <h1>Pedido enviado! 🎉</h1>
+    <div class="num" id="num">#0000</div>
+    <p>Recebemos seu pedido no WhatsApp. <strong>Vamos responder em poucos minutos</strong> no horário de funcionamento. 💚</p>
+    <div class="passos">
+      <div>✅ <strong>1.</strong> Pedido recebido</div>
+      <div>👩‍🍳 <strong>2.</strong> Confirmamos e começamos o preparo</div>
+      <div>🛵 <strong>3.</strong> Sai pra entrega — <strong>grátis!</strong></div>
+    </div>
+    <a class="btn btn-zap" href="https://wa.me/559992338700" target="_blank" rel="noopener">💬 Falar com a gente no WhatsApp</a>
+    <a class="btn btn-site" href="index.html">← Voltar ao cardápio</a>
+  </div>
+<script>
+  const n = new URLSearchParams(location.search).get("n");
+  if (n) document.getElementById("num").textContent = "#" + n;
+</script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+# robots.txt — Sabor Natural
+# Ao publicar, troque o domínio abaixo pelo oficial
+User-agent: *
+Allow: /
+Disallow: /obrigado.html
+Disallow: /404.html
+
+Sitemap: https://luis2002dourado.github.io/sabor-natural-fit/sitemap.xml

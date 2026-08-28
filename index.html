@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Sabor Natural — Comida Fitness | Dom Pedro, MA</title>
+<meta name="description" content="Bistrô & Confeitaria fitness em Dom Pedro, MA: marmitas, panqueca zero, crepioca, natubúrguer, tapiocas, cuscuz, sanduíches, doces fit e sucos. Entrega GRÁTIS — peça pelo WhatsApp!">
+<meta name="theme-color" content="#141414">
+<link rel="icon" href="assets/logo.jpg">
+<link rel="canonical" href="https://luis2002dourado.github.io/sabor-natural-fit/">
+<meta property="og:url" content="https://luis2002dourado.github.io/sabor-natural-fit/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- ===== SEO ON-PAGE ===== -->
+<meta name="keywords" content="marmita fit, comida saudável, low carb, suco detox, tapioca fit, cuscuz, Dom Pedro, Maranhão, entrega grátis">
+<meta name="robots" content="index, follow">
+
+<!-- ===== SEGURANÇA (equivalente a cabeçalhos, via meta) ===== -->
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; frame-src https://www.google.com; base-uri 'self'">
+
+<!-- ===== COMPARTILHAMENTO SOCIAL (Open Graph / WhatsApp / Twitter) =====
+     Ao publicar, trocar para URL absoluta: https://seudominio.com.br/assets/og.jpg -->
+<meta property="og:type" content="restaurant">
+<meta property="og:title" content="Sabor Natural — Comida Fitness | Dom Pedro, MA">
+<meta property="og:description" content="Marmitas, lanches fit, sucos detox e doces zero. 🛵 Entrega GRÁTIS — peça pelo WhatsApp!">
+<meta property="og:image" content="https://luis2002dourado.github.io/sabor-natural-fit/assets/og.jpg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sabor Natural — Comida Fitness">
+<meta name="twitter:description" content="Marmitas, lanches fit e sucos detox. Entrega GRÁTIS em Dom Pedro-MA!">
+<meta name="twitter:image" content="https://luis2002dourado.github.io/sabor-natural-fit/assets/og.jpg">
+
+<!-- ===== GOOGLE ANALYTICS — TROCAR G-XXXXXXXXXX pelo ID real (guardado em .env/GA_ID) ===== -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<!-- ============================================================
+     SABOR NATURAL — comida fitness (@sabornaturalfit_dp)
+     Visual inspirado no Uber Eats • mobile-first
+     Horários: Seg–Sáb 7h–13h / 15h–20h • Dom: encomendas
+     WhatsApp oficial: (99) 9233-8700
+     ============================================================ -->
+
+<style>
+:root{
+  --preto:#141414;          /* botões e títulos, estilo Uber Eats */
+  --verde:#008e3a;          /* verde da marca */
+  --verde-vivo:#06a94d;     /* verde de status/chegada */
+  --pastel:#a5d1a0;         /* pastel da logo */
+  --pastel-claro:#edf6ea;
+  --cinza:#f6f6f6;
+  --cinza-2:#eeeeee;
+  --texto:#1c1c1c;
+  --suave:#6b6b6b;
+  --linha:#e8e8e4;
+  --wpp:#18c05e;
+  --ambar:#b26a00;
+  --ambar-bg:#fff4d6;
+  --raio:16px;
+  --sombra:0 2px 14px rgba(0,0,0,.09);
+  --sombra-forte:0 12px 34px rgba(0,0,0,.18);
+  --ease:cubic-bezier(.22,.9,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Archivo',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  background:var(--cinza);color:var(--texto);line-height:1.45;
+}
+img{display:block;max-width:100%}
+button{font-family:inherit;border:none;background:none;cursor:pointer}
+a{text-decoration:none;color:inherit}
+section{scroll-margin-top:128px}
+
+/* Coluna estilo app */
+.app{max-width:560px;margin:0 auto;background:#fff;min-height:100vh;position:relative;
+  box-shadow:0 0 60px rgba(0,0,0,.06)}
+@media(max-width:600px){.app{box-shadow:none}}
+
+/* ---------- Animações de entrada ---------- */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
+.reveal.vis{opacity:1;transform:none}
+@keyframes pulse{0%{transform:scale(1)}40%{transform:scale(1.35)}100%{transform:scale(1)}}
+@keyframes desliza{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+/* ---------- Header ---------- */
+header{
+  position:sticky;top:0;z-index:45;background:rgba(255,255,255,.92);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--linha);
+  padding:10px 16px 12px;
+}
+.topo{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.topo img{width:42px;height:42px;border-radius:12px;object-fit:cover;box-shadow:var(--sombra)}
+.topo .tt{flex:1;min-width:0}
+.topo .tt strong{display:block;font-size:1.02rem;font-weight:900;letter-spacing:-.02em}
+.status{
+  display:inline-flex;align-items:center;gap:6px;margin-top:2px;
+  font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:999px;
+  animation:desliza .5s var(--ease);
+}
+.status::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.status.aberto{background:#e3f8ec;color:#067a46}
+.status.fechado{background:var(--cinza-2);color:var(--suave)}
+.status.aviso{background:var(--ambar-bg);color:var(--ambar)}
+.btn-sacola{
+  position:relative;width:44px;height:44px;border-radius:50%;background:var(--preto);
+  display:grid;place-items:center;transition:transform .15s var(--ease);
+}
+.btn-sacola:active{transform:scale(.92)}
+.btn-sacola .badge{
+  position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;border-radius:999px;
+  background:var(--verde-vivo);color:#fff;font-size:.7rem;font-weight:800;
+  display:grid;place-items:center;padding:0 5px;border:2px solid #fff;
+  opacity:0;transform:scale(.5);transition:all .25s var(--ease);
+}
+.btn-sacola .badge.on{opacity:1;transform:scale(1)}
+.btn-sacola .badge.pulse{animation:pulse .35s var(--ease)}
+
+/* ---------- Busca ---------- */
+.busca{
+  display:flex;align-items:center;gap:10px;background:var(--cinza);
+  border-radius:999px;padding:13px 16px;transition:box-shadow .2s;
+}
+.busca:focus-within{box-shadow:0 0 0 2px var(--preto)}
+.busca svg{width:18px;height:18px;flex-shrink:0}
+.busca input{
+  flex:1;border:none;background:none;outline:none;font-size:.95rem;font-family:inherit;
+}
+.busca input::placeholder{color:#9a9a94}
+.busca .limpar{display:none;color:var(--suave);font-size:1rem;padding:0 2px}
+.busca .limpar.on{display:block}
+
+/* ---------- Pills de categoria ---------- */
+.pills-wrap{
+  position:sticky;top:0;z-index:44;margin-top:-1px;background:#fff;
+  border-bottom:1px solid var(--linha);
+}
+header + .pills-wrap{top:0}
+.pills{
+  display:flex;gap:8px;overflow-x:auto;padding:10px 16px 12px;
+  scrollbar-width:none;-ms-overflow-style:none;scroll-behavior:smooth;
+}
+.pills::-webkit-scrollbar{display:none}
+.pill{
+  flex-shrink:0;padding:9px 16px;border-radius:999px;font-size:.84rem;font-weight:700;
+  color:var(--texto);background:#fff;border:1.5px solid var(--linha);
+  transition:all .2s var(--ease);
+}
+.pill:active{transform:scale(.94)}
+.pill.ativa{background:var(--preto);color:#fff;border-color:var(--preto)}
+
+/* ---------- Hero ---------- */
+.hero{background:var(--pastel);padding:20px 20px 24px;text-align:center;position:relative;overflow:hidden}
+.hero img.logo-grande{width:min(220px,62%);margin:0 auto 12px;mix-blend-mode:multiply}
+.hero h1{font-size:1.7rem;font-weight:900;letter-spacing:-.03em;line-height:1.15;color:var(--preto)}
+.hero p{color:#2c5137;font-size:.92rem;margin:8px 0 14px;font-weight:600}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.chip{
+  background:#fff;border-radius:999px;padding:7px 13px;font-size:.76rem;font-weight:800;
+  color:var(--texto);box-shadow:var(--sombra);display:inline-flex;align-items:center;gap:5px;
+}
+.chip .dot{width:7px;height:7px;border-radius:50%;background:var(--verde-vivo)}
+
+/* ---------- Banner promo ---------- */
+.promo{
+  margin:16px;border-radius:18px;background:var(--preto);color:#fff;
+  padding:20px 22px;display:flex;align-items:center;gap:16px;
+  box-shadow:var(--sombra-forte);
+}
+.promo .p-icone{
+  width:52px;height:52px;border-radius:14px;background:var(--verde-vivo);
+  display:grid;place-items:center;flex-shrink:0;font-size:1.5rem;
+}
+.promo strong{display:block;font-size:1.05rem;font-weight:900;letter-spacing:-.01em}
+.promo span{font-size:.82rem;color:#cfcfcf}
+
+/* ---------- Destaque marmita ---------- */
+.destaque{padding:8px 16px 4px}
+.dest-card{
+  position:relative;border-radius:20px;overflow:hidden;box-shadow:var(--sombra-forte);
+  background:var(--preto);
+}
+.dest-card img{height:190px;width:100%;object-fit:cover;opacity:.92;transition:transform .6s var(--ease)}
+.dest-card:active img{transform:scale(1.04)}
+.dest-gradiente{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 30%,rgba(0,0,0,.78))}
+.selo{
+  position:absolute;top:12px;left:12px;background:#ffd54a;color:#3f2d00;
+  font-size:.7rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase;
+  padding:6px 12px;border-radius:999px;
+}
+.dest-info{position:absolute;left:16px;right:16px;bottom:14px;color:#fff}
+.dest-info h2{font-size:1.3rem;font-weight:900;letter-spacing:-.02em}
+.dest-info .preco{font-size:1rem;font-weight:800;color:#8ef0b8}
+.dest-info p{font-size:.8rem;color:#e3e3e3;margin:4px 0 10px}
+.btn-branco{
+  display:inline-flex;align-items:center;gap:7px;background:#fff;color:var(--preto);
+  font-weight:800;font-size:.86rem;padding:11px 18px;border-radius:999px;
+  transition:transform .12s var(--ease);
+}
+.btn-branco:active{transform:scale(.95)}
+
+/* ---------- Seções de categoria ---------- */
+.titulos{padding:20px 16px 6px;display:flex;align-items:baseline;justify-content:space-between}
+.titulos h2{font-size:1.25rem;font-weight:900;letter-spacing:-.02em}
+.titulos span{font-size:.76rem;color:var(--suave);font-weight:600}
+
+/* Trilho horizontal estilo Uber Eats */
+.trilho{
+  display:flex;gap:12px;overflow-x:auto;padding:10px 16px 20px;
+  scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;
+}
+.trilho::-webkit-scrollbar{display:none}
+.card{
+  flex:0 0 76%;max-width:280px;scroll-snap-align:start;
+  background:#fff;border-radius:var(--raio);overflow:hidden;
+  border:1px solid var(--linha);box-shadow:var(--sombra);
+  text-align:left;position:relative;transition:transform .15s var(--ease),box-shadow .2s;
+}
+.card:active{transform:scale(.97)}
+.card .imagem{position:relative;height:130px;overflow:hidden}
+.card .imagem img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.card:active .imagem img{transform:scale(1.06)}
+.card .mais{
+  position:absolute;right:10px;bottom:-16px;width:36px;height:36px;border-radius:50%;
+  background:var(--preto);color:#fff;display:grid;place-items:center;
+  box-shadow:var(--sombra-forte);transition:transform .15s var(--ease);
+}
+.card:active .mais{transform:scale(.88)}
+.card .corpo{padding:20px 14px 14px}
+.card .corpo h3{font-size:.96rem;font-weight:800;letter-spacing:-.01em;line-height:1.25}
+.card .corpo p{
+  font-size:.78rem;color:var(--suave);margin-top:3px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.card .corpo .p-preco{margin-top:7px;font-size:.92rem;font-weight:900;color:var(--preto)}
+.card .corpo .p-preco small{font-weight:700;color:var(--suave);font-size:.72rem}
+
+/* Resultados de busca */
+.resultados{padding:8px 16px 30px;display:none}
+.resultados.on{display:block}
+.res-linha{
+  display:flex;gap:12px;align-items:center;width:100%;text-align:left;
+  padding:12px 4px;border-bottom:1px solid var(--linha);
+}
+.res-linha img{width:56px;height:56px;border-radius:12px;object-fit:cover;flex-shrink:0}
+.res-linha .r{flex:1;min-width:0}
+.res-linha strong{display:block;font-size:.92rem;font-weight:800}
+.res-linha span{font-size:.76rem;color:var(--suave)}
+.res-linha .pr{font-weight:900;font-size:.9rem;white-space:nowrap}
+.res-vazio{text-align:center;color:var(--suave);padding:34px 16px;font-size:.9rem}
+
+/* ---------- Rodapé ---------- */
+footer{background:var(--preto);color:#bdbdbd;padding:30px 20px 44px;margin-top:14px}
+footer .f-linha{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+footer img{width:46px;height:46px;border-radius:12px}
+footer .f-linha strong{color:#fff;font-size:1.02rem;font-weight:900;display:block}
+footer .f-linha span{font-size:.78rem}
+footer .grade{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+footer .bloco{font-size:.82rem;line-height:1.65}
+footer .bloco b{color:#fff;display:block;margin-bottom:3px;font-size:.85rem}
+footer .insta{
+  display:inline-flex;align-items:center;gap:8px;color:#fff;font-weight:700;font-size:.86rem;
+  border:1px solid #3a3a3a;padding:9px 16px;border-radius:999px;transition:background .2s;
+}
+footer .insta:hover{background:#262626}
+footer .cred{margin-top:16px;font-size:.72rem;color:#7c7c7c;text-align:center}
+
+/* ---------- Barra "Ver pedido" ---------- */
+.barra{
+  position:fixed;left:50%;bottom:16px;transform:translate(-50%,150%);z-index:55;
+  width:min(92vw,520px);background:var(--preto);color:#fff;
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:15px 20px;border-radius:999px;box-shadow:var(--sombra-forte);
+  transition:transform .35s var(--ease);font-weight:800;font-size:.92rem;
+}
+.barra.on{transform:translate(-50%,0)}
+.barra .b-qtd{background:#fff;color:var(--preto);border-radius:999px;padding:3px 11px;font-size:.8rem}
+.barra:active{transform:translate(-50%,0) scale(.97)}
+
+/* Botão flutuante WhatsApp */
+.wpp{
+  position:fixed;right:14px;bottom:82px;z-index:54;width:48px;height:48px;border-radius:50%;
+  background:var(--wpp);display:grid;place-items:center;box-shadow:0 8px 22px rgba(24,192,94,.5);
+  transition:transform .15s var(--ease);
+}
+.wpp:active{transform:scale(.9)}
+
+/* ---------- Backdrop ---------- */
+.backdrop{
+  position:fixed;inset:0;background:rgba(15,15,15,.5);z-index:70;
+  opacity:0;pointer-events:none;transition:opacity .28s;backdrop-filter:blur(2px);
+}
+.backdrop.on{opacity:1;pointer-events:auto}
+
+/* ---------- Folha do item (estilo Uber Eats) ---------- */
+.folha{
+  position:fixed;left:0;right:0;bottom:0;z-index:80;background:#fff;
+  max-width:560px;margin:0 auto;max-height:92vh;border-radius:22px 22px 0 0;
+  display:flex;flex-direction:column;overflow:hidden;
+  transform:translateY(103%);transition:transform .34s var(--ease);
+  box-shadow:0 -14px 50px rgba(0,0,0,.3);
+}
+.folha.aberta{transform:translateY(0)}
+.folha .f-imagem{position:relative;height:220px;flex-shrink:0}
+.folha .f-imagem img{width:100%;height:100%;object-fit:cover}
+.folha .f-fechar{
+  position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,.95);color:var(--preto);font-size:.95rem;font-weight:700;
+  display:grid;place-items:center;box-shadow:var(--sombra-forte);
+}
+.folha .f-corpo{flex:1;overflow-y:auto;padding:18px 20px 14px;animation:desliza .4s var(--ease)}
+.folha .f-corpo h2{font-size:1.3rem;font-weight:900;letter-spacing:-.02em}
+.folha .f-corpo .f-preco{font-size:1.05rem;font-weight:800;color:var(--verde);margin:4px 0 8px}
+.folha .f-corpo .f-desc{font-size:.88rem;color:var(--suave);margin-bottom:16px}
+.aviso{
+  background:var(--pastel-claro);border-radius:12px;padding:12px 14px;
+  font-size:.84rem;color:var(--verde);font-weight:700;margin-bottom:14px;
+}
+.grupo-titulo{font-size:.84rem;font-weight:900;letter-spacing:.02em;margin-bottom:10px;display:flex;justify-content:space-between}
+.grupo-titulo small{background:var(--cinza-2);border-radius:6px;padding:2px 8px;font-size:.68rem;color:var(--suave);font-weight:700}
+.opcao{
+  display:flex;align-items:center;gap:12px;width:100%;text-align:left;
+  padding:13px 2px;border-bottom:1px solid var(--linha);
+}
+.opcao:last-child{border-bottom:none}
+.opcao .circ{
+  width:22px;height:22px;border-radius:50%;border:2px solid #c9c9c2;flex-shrink:0;
+  display:grid;place-items:center;transition:all .18s var(--ease);
+}
+.opcao .circ::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--preto);opacity:0;transform:scale(.4);transition:all .18s var(--ease)}
+.opcao.sel .circ{border-color:var(--preto)}
+.opcao.sel .circ::after{opacity:1;transform:scale(1)}
+.opcao .o-nome{flex:1;font-size:.92rem;font-weight:600;line-height:1.35}
+.opcao .o-preco{font-weight:800;font-size:.9rem}
+.stepper{
+  display:flex;align-items:center;justify-content:center;gap:22px;
+  padding:16px 0 6px;
+}
+.stepper button{
+  width:46px;height:46px;border-radius:50%;background:var(--cinza-2);
+  font-size:1.3rem;font-weight:700;color:var(--preto);
+  display:grid;place-items:center;transition:background .15s, transform .12s;
+}
+.stepper button:active{transform:scale(.9);background:#e0e0da}
+.stepper span{font-size:1.25rem;font-weight:900;min-width:30px;text-align:center}
+.folha .f-rodape{padding:12px 16px calc(14px + env(safe-area-inset-bottom));border-top:1px solid var(--linha);background:#fff}
+.btn-preto{
+  width:100%;background:var(--preto);color:#fff;border-radius:14px;
+  padding:16px;font-size:1rem;font-weight:900;letter-spacing:.01em;
+  display:flex;justify-content:space-between;align-items:center;
+  transition:transform .12s var(--ease);
+}
+.btn-preto:active{transform:scale(.97)}
+.btn-preto.central{justify-content:center}
+
+/* ---------- Telas cheias (sacola / resumo) ---------- */
+.tela{
+  position:fixed;inset:0;z-index:90;background:var(--cinza);
+  max-width:560px;margin:0 auto;display:flex;flex-direction:column;
+  transform:translateY(100%);transition:transform .34s var(--ease);
+}
+.tela.aberta{transform:translateY(0)}
+.tela-cab{
+  background:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px;
+  border-bottom:1px solid var(--linha);
+}
+.tela-cab .volta{
+  width:38px;height:38px;border-radius:50%;background:var(--cinza-2);
+  display:grid;place-items:center;font-size:1rem;font-weight:700;flex-shrink:0;
+}
+.tela-cab h3{font-size:1.05rem;font-weight:900;flex:1}
+.tela-corpo{flex:1;overflow-y:auto;padding:16px}
+.tela-rodape{padding:12px 16px calc(16px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid var(--linha)}
+
+.carda{
+  background:#fff;border-radius:16px;box-shadow:var(--sombra);padding:16px;margin-bottom:14px;
+}
+.carda h4{font-size:.92rem;font-weight:900;margin-bottom:8px;letter-spacing:.01em}
+.linha-sacola{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--linha)}
+.linha-sacola:last-child{border-bottom:none}
+.linha-sacola img{width:54px;height:54px;border-radius:12px;object-fit:cover;flex-shrink:0}
+.linha-sacola .ls{flex:1;min-width:0}
+.linha-sacola .ls strong{display:block;font-size:.88rem;font-weight:800;line-height:1.3}
+.linha-sacola .ls span{font-size:.76rem;color:var(--suave)}
+.mini-step{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.mini-step button{
+  width:28px;height:28px;border-radius:50%;background:var(--cinza-2);
+  font-weight:800;font-size:.95rem;color:var(--preto);
+}
+.mini-step button:active{transform:scale(.88)}
+.mini-step span{font-weight:900;font-size:.9rem;min-width:14px;text-align:center}
+
+.campo{
+  width:100%;border:1.5px solid var(--linha);border-radius:14px;background:#fff;
+  padding:14px;font-size:.92rem;font-family:inherit;margin-bottom:10px;outline:none;resize:none;
+  transition:border-color .15s, box-shadow .15s;
+}
+.campo:focus{border-color:var(--preto);box-shadow:0 0 0 1px var(--preto)}
+.vazio-s{text-align:center;padding:60px 20px;color:var(--suave)}
+.vazio-s .grande{font-size:2.6rem;margin-bottom:8px}
+
+.totais .tl{display:flex;justify-content:space-between;font-size:.9rem;padding:5px 0;color:var(--texto)}
+.totais .gratis{color:var(--verde);font-weight:900}
+.totais .total{
+  border-top:2px solid var(--linha);margin-top:8px;padding-top:12px;
+  font-size:1.2rem;font-weight:900;letter-spacing:-.01em;
+}
+
+.numero-pedido{
+  display:flex;justify-content:space-between;align-items:center;
+  background:var(--pastel-claro);border-radius:14px;padding:14px 16px;margin-bottom:14px;
+}
+.numero-pedido .rot{font-size:.7rem;color:var(--suave);text-transform:uppercase;letter-spacing:.12em;font-weight:800}
+.numero-pedido .num{font-size:1.4rem;font-weight:900;color:var(--verde);letter-spacing:.02em}
+.resumo-msg{
+  font-size:.82rem;color:var(--verde);background:var(--pastel-claro);
+  border-radius:12px;padding:11px 13px;font-weight:700;margin-top:10px;
+}
+.btn-zap{
+  width:100%;display:flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--wpp);color:#fff;border-radius:14px;font-weight:900;font-size:1rem;
+  padding:16px;box-shadow:0 10px 26px rgba(24,192,94,.4);transition:transform .12s;
+}
+.btn-zap:active{transform:scale(.97)}
+.btn-contorno{
+  width:100%;background:#fff;border:1.5px solid var(--linha);border-radius:14px;
+  padding:14px;font-weight:800;font-size:.9rem;margin-bottom:10px;color:var(--texto);
+}
+
+/* Toast */
+.toast{
+  position:fixed;left:50%;bottom:96px;transform:translate(-50%,18px);z-index:99;
+  background:var(--preto);color:#fff;padding:12px 24px;border-radius:999px;
+  font-size:.85rem;font-weight:700;opacity:0;pointer-events:none;
+  transition:all .28s var(--ease);white-space:nowrap;box-shadow:var(--sombra-forte);
+}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+.d-none{display:none!important}
+
+/* ---------- CTA hero (acima da dobra) ---------- */
+.hero-cta{margin-top:16px;display:flex;justify-content:center}
+.btn-hero-preto{
+  display:inline-flex;align-items:center;gap:8px;background:var(--preto);color:#fff;
+  padding:15px 28px;border-radius:999px;font-weight:900;font-size:1rem;
+  box-shadow:var(--sombra-forte);transition:transform .15s var(--ease);
+  animation:desliza .6s var(--ease);
+}
+.btn-hero-preto:active{transform:scale(.95)}
+.chip-rapido{background:#fff7e0!important;color:#8a5a00!important}
+
+/* ---------- Seções ---------- */
+.secao{padding:26px 16px}
+.secao h2{font-size:1.3rem;font-weight:900;letter-spacing:-.02em;margin-bottom:4px}
+.secao .sub{font-size:.84rem;color:var(--suave);margin-bottom:16px}
+
+/* Avaliações */
+.notas{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.notas .num{font-size:2rem;font-weight:900}
+.notas .estrelas{color:#f5b301;font-size:1.15rem;letter-spacing:2px}
+.rev{background:#fff;border:1px solid var(--linha);border-radius:16px;padding:16px;margin-bottom:12px;box-shadow:var(--sombra)}
+.rev .estrelas{color:#f5b301;font-size:.9rem;margin-bottom:6px}
+.rev p{font-size:.9rem;margin-bottom:10px}
+.rev .quem{font-size:.76rem;font-weight:800;color:var(--suave);text-transform:uppercase;letter-spacing:.06em}
+
+/* FAQ */
+details{background:#fff;border:1px solid var(--linha);border-radius:14px;margin-bottom:10px;overflow:hidden}
+summary{list-style:none;cursor:pointer;padding:15px 16px;font-weight:800;font-size:.92rem;display:flex;justify-content:space-between;align-items:center;gap:10px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.25rem;font-weight:700;color:var(--verde);transition:transform .22s var(--ease);flex-shrink:0}
+details[open] summary::after{transform:rotate(45deg)}
+details .corpo{padding:0 16px 15px;font-size:.88rem;color:var(--suave);animation:desliza .25s var(--ease)}
+
+/* Mapa */
+.mapa{border-radius:18px;overflow:hidden;box-shadow:var(--sombra);margin-bottom:12px}
+.mapa iframe{width:100%;height:230px;border:0;display:block}
+.btn-rota{display:inline-flex;align-items:center;gap:8px;background:var(--preto);color:#fff;padding:13px 22px;border-radius:999px;font-weight:800;font-size:.88rem;transition:transform .12s}
+.btn-rota:active{transform:scale(.95)}
+
+
+/* Links internos rodapé */
+.f-links{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:4px 0 16px}
+.f-links a{font-size:.8rem;color:#dcdcdc;border:1px solid #3a3a3a;border-radius:999px;padding:7px 14px;transition:background .2s}
+.f-links a:hover{background:#262626}
+
+/* ---------- Modal da comanda ---------- */
+.modal{position:fixed;inset:0;z-index:120;background:rgba(15,15,15,.62);display:none;align-items:center;justify-content:center;padding:18px}
+.modal.on{display:flex;animation:desliza .28s var(--ease)}
+.modal-card{background:#fff;border-radius:20px;max-width:400px;width:100%;max-height:92vh;overflow-y:auto;padding:20px;text-align:center;box-shadow:var(--sombra-forte)}
+.modal-card h3{font-weight:900;font-size:1.08rem;margin-bottom:4px}
+.modal-card>p{font-size:.82rem;color:var(--suave);margin-bottom:14px}
+.modal-card img{max-width:100%;border:1px dashed var(--linha);border-radius:12px;margin:0 auto 16px;background:#fff}
+.modal-card .btn-zap{margin-bottom:10px}
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ============ HEADER ============ -->
+  <header>
+    <div class="topo">
+      <img src="assets/logo.jpg" alt="Sabor Natural">
+      <div class="tt">
+        <strong>Sabor Natural</strong>
+        <span class="status" id="status-loja">verificando...</span>
+      </div>
+      <button class="btn-sacola" id="btn-sacola" aria-label="Ver pedido">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l2 13H4L6 7Z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg>
+        <span class="badge" id="badge">0</span>
+      </button>
+    </div>
+    <div class="busca">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#6b6b6b" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="text" id="campo-busca" placeholder="Buscar no cardápio: tapioca, suco, marmita...">
+      <button class="limpar" id="btn-limpar">✕</button>
+    </div>
+  </header>
+  <div class="pills-wrap" id="pills-wrap">
+    <nav class="pills" id="pills"></nav>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero reveal">
+    <img class="logo-grande" src="assets/logo.jpg" alt="Sabor Natural — comida fitness">
+    <h1>Bistrô & Confeitaria Fitness</h1>
+    <p>Comidas saudáveis & low carb • Lanches saudáveis & sucos detox</p>
+    <div class="hero-meta">
+      <span class="chip"><span class="dot"></span> Entrega grátis</span>
+      <span class="chip">📍 Dom Pedro — MA</span>
+      <span class="chip">🥗 100% natural</span>
+      <span class="chip chip-rapido">⚡ Resposta em minutos</span>
+    </div>
+    <!-- CTA principal acima da dobra -->
+    <div class="hero-cta">
+      <a class="btn-hero-preto" href="#cat-marmita">Fazer pedido agora →</a>
+    </div>
+  </section>
+
+  <!-- ============ PROMO ============ -->
+  <div class="promo reveal">
+    <span class="p-icone">🛵</span>
+    <div>
+      <strong>Entrega GRÁTIS</strong>
+      <span>Sem taxa de entrega em toda Dom Pedro — direto pro seu WhatsApp</span>
+    </div>
+  </div>
+
+  <!-- ============ RESULTADOS DE BUSCA ============ -->
+  <div class="resultados" id="resultados"></div>
+
+  <!-- ============ DESTAQUE MARMITA ============ -->
+  <section class="destaque reveal" id="cat-marmita">
+    <div class="carda" style="padding:0;overflow:hidden">
+      <div class="dest-card" id="card-marmita">
+        <img src="assets/marmita.jpg" alt="Marmita do Dia">
+        <span class="selo">🔥 Nosso foco</span>
+        <div class="dest-gradiente"></div>
+        <div class="dest-info">
+          <h2>Marmita do Dia</h2>
+          <div class="preco">R$ 25,00 • entrega grátis</div>
+          <p>O cardápio muda todo dia — a gente te manda no WhatsApp! 🍱</p>
+          <span class="btn-branco">Adicionar
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CATEGORIAS (render via JS) ============ -->
+  <div id="menu"></div>
+
+  <!-- ============ AVALIAÇÕES ============ -->
+  <!-- TROCAR: substituir pelos prints/avaliações reais dos clientes -->
+  <section class="secao reveal" id="avaliacoes">
+    <h2>Quem pediu, aprovou ⭐</h2>
+    <p class="sub">Cases de sucesso de quem já é fã da casa</p>
+    <div class="notas">
+      <span class="num">5.0</span>
+      <span class="estrelas">★★★★★</span>
+      <span style="font-size:.8rem;color:var(--suave);font-weight:700">avaliação dos clientes</span>
+    </div>
+    <div class="rev">
+      <div class="estrelas">★★★★★</div>
+      <p>"A marmita muda todo dia e nunca decepciona. Comida fresquinha, temperada na medida, e a entrega chega voando — sem taxa!"</p>
+      <span class="quem">Mariana S. — cliente desde 2024</span>
+    </div>
+    <div class="rev">
+      <div class="estrelas">★★★★★</div>
+      <p>"O natubúrguer é absurdo de bom. Virou meu lanche de sexta sem culpa nenhuma. Pedido pelo WhatsApp é rapidinho."</p>
+      <span class="quem">Carlos E. —Dom Pedro</span>
+    </div>
+    <div class="rev">
+      <div class="estrelas">★★★★★</div>
+      <p>"Suco verde gelado, crepioca maravilhosa e atendimento nota dez. Perdi as contas de quantas vezes pedi."</p>
+      <span class="quem">Ana Paula — bairro Cândido Hermes</span>
+    </div>
+  </section>
+
+  <!-- ============ PERGUNTAS FREQUENTES ============ -->
+  <section class="secao reveal" id="faq">
+    <h2>Perguntas frequentes ❓</h2>
+    <p class="sub">Tire suas dúvidas rapidinho</p>
+    <details>
+      <summary>Vocês cobram taxa de entrega?</summary>
+      <div class="corpo">Não! 🛵 A entrega é <strong>100% grátis</strong> em Dom Pedro. O valor que você vê no cardápio é o valor final.</div>
+    </details>
+    <details>
+      <summary>Como funciona a Marmita do Dia?</summary>
+      <div class="corpo">A marmita custa <strong>R$ 25,00</strong> e o cardápio muda todos os dias. Ao fazer o pedido, mandamos o cardápio do dia no WhatsApp para você confirmar. 🍱</div>
+    </details>
+    <details>
+      <summary>Qual o horário de funcionamento?</summary>
+      <div class="corpo">Segunda a sábado, das <strong>7h às 13h</strong> e das <strong>15h às 20h</strong>. Aos domingos trabalhamos <strong>somente com encomendas</strong>.</div>
+    </details>
+    <details>
+      <summary>Onde vocês ficam?</summary>
+      <div class="corpo">Rua Bela Vista, Bairro Cândido Hermes — Dom Pedro/MA, CEP 65765-000. Veja o <a href="#localizacao">mapa e como chegar</a>.</div>
+    </details>
+    <details>
+      <summary>Em quanto tempo vocês respondem?</summary>
+      <div class="corpo">⚡ Responderemos seu pedido em <strong>poucos minutos</strong> dentro do horário de funcionamento — você nunca fica no vácuo!</div>
+    </details>
+  </section>
+
+  <!-- ============ MAPA / COMO CHEGAR ============ -->
+  <section class="secao reveal" id="localizacao">
+    <h2>Onde estamos 📍</h2>
+    <p class="sub">Rua Bela Vista, Bairro Cândido Hermes — Dom Pedro, MA • CEP 65765-000</p>
+    <div class="mapa">
+      <iframe title="Mapa — como chegar ao Sabor Natural" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=Rua+Bela+Vista,+Candido+Hermes,+Dom+Pedro,+Maranhao,+65765-000&output=embed"></iframe>
+    </div>
+    <a class="btn-rota" href="https://www.google.com/maps/dir/?api=1&destination=Rua+Bela+Vista,+Candido+Hermes,+Dom+Pedro,+MA,+65765-000" target="_blank" rel="noopener">🧭 Traçar rota até aqui</a>
+  </section>
+
+
+  <!-- ============ RODAPÉ ============ -->
+  <footer>
+    <div class="f-linha">
+      <img src="assets/logo.jpg" alt="Sabor Natural">
+      <div>
+        <strong>Sabor Natural</strong>
+        <span>comida fitness • Dom Pedro, MA</span>
+      </div>
+    </div>
+    <div class="grade">
+      <div class="bloco">
+        <b>📍 Endereço</b>
+        Rua Bela Vista, Bairro Cândido Hermes<br>
+        Dom Pedro — MA<br>
+        CEP 65765-000
+      </div>
+      <div class="bloco">
+        <b>⏰ Horários</b>
+        Seg a Sáb:<br>7h às 13h • 15h às 20h<br>
+        Dom: somente encomendas
+      </div>
+    </div>
+    <nav class="f-links" aria-label="Mapa do site">
+      <a href="#cat-marmita">🍱 Marmita do Dia</a>
+      <a href="#cat-sanduiches">🥪 Sanduíches</a>
+      <a href="#cat-sucos">🥤 Sucos</a>
+      <a href="#cat-doces">🍫 Doces</a>
+      <a href="#avaliacoes">⭐ Avaliações</a>
+      <a href="#faq">❓ Dúvidas</a>
+      <a href="#localizacao">📍 Como chegar</a>
+      <a href="privacidade.html">🔒 Privacidade</a>
+    </nav>
+    <a class="insta" href="https://www.instagram.com/sabornaturalfit_dp" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      @sabornaturalfit_dp
+    </a>
+    <div style="margin-top:12px;font-size:.82rem">📱 <a href="https://wa.me/559992338700" target="_blank" rel="noopener" style="color:#fff">(99) 9233-8700</a> • 🛵 Entrega grátis</div>
+    <p class="cred">Sabor Natural 🥗 comida fitness feita com carinho</p>
+  </footer>
+
+</div><!-- /app -->
+
+<!-- ============ BARRA VER PEDIDO ============ -->
+<button class="barra" id="barra">
+  <span class="b-qtd" id="barra-qtd">0</span>
+  <span>Ver pedido</span>
+  <span id="barra-total">R$ 0,00</span>
+</button>
+
+<!-- WhatsApp flutuante -->
+<a class="wpp" id="wpp-flutuante" href="#" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" width="24" height="24" fill="#fff"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.83 14.12c-.25.7-1.45 1.33-2.02 1.42-.52.08-1.17.11-1.89-.12-.44-.14-1-.32-1.71-.63-3.02-1.3-4.99-4.34-5.14-4.54-.15-.2-1.23-1.63-1.23-3.11 0-1.48.78-2.21 1.05-2.51.27-.3.6-.38.8-.38.2 0 .4 0 .57.01.18.01.43-.07.67.51.25.6.85 2.07.92 2.22.08.15.13.33.03.53-.1.2-.15.33-.3.5-.15.18-.32.4-.45.53-.15.15-.31.31-.13.61.18.3.79 1.31 1.71 2.12 1.17 1.05 2.16 1.37 2.47 1.53.3.15.48.13.66-.08.18-.2.75-.88.95-1.18.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.5.22.57.35.08.12.08.72-.18 1.42Z"/></svg>
+</a>
+
+<!-- ============ BACKDROP + FOLHA DO ITEM ============ -->
+<div class="backdrop" id="backdrop"></div>
+<div class="folha" id="folha">
+  <div class="f-imagem">
+    <img id="f-img" src="assets/logo.jpg" alt="">
+    <button class="f-fechar" id="f-fechar">✕</button>
+  </div>
+  <div class="f-corpo">
+    <h2 id="f-nome">Item</h2>
+    <div class="f-preco" id="f-preco"></div>
+    <p class="f-desc" id="f-desc"></p>
+    <div id="f-aviso"></div>
+    <div id="f-sabores"></div>
+    <div class="stepper">
+      <button id="st-menos">−</button>
+      <span id="st-qtd">1</span>
+      <button id="st-mais">+</button>
+    </div>
+  </div>
+  <div class="f-rodape">
+    <button class="btn-preto" id="f-add">
+      <span>Adicionar ao pedido</span>
+      <span id="f-btn-preco">R$ 0,00</span>
+    </button>
+  </div>
+</div>
+
+<!-- ============ TELA: SACOLA ============ -->
+<div class="tela" id="tela-sacola">
+  <div class="tela-cab">
+    <button class="volta" id="v-sacola">✕</button>
+    <h3>Seu pedido 🧺</h3>
+    <span style="font-size:.78rem;color:var(--suave);font-weight:700">Sabor Natural</span>
+  </div>
+  <div class="tela-corpo">
+    <div class="carda">
+      <h4>Itens</h4>
+      <div id="sacola-itens"></div>
+    </div>
+    <div class="carda" id="carda-aviso-marmita" style="display:none">
+      <div class="resumo-msg" style="margin-top:0">🍱 Ao enviar, já vai junto a solicitação do <strong>cardápio do dia das marmitas</strong>!</div>
+    </div>
+    <div class="carda">
+      <h4>Seus dados</h4>
+      <input class="campo" id="c-nome" type="text" placeholder="👤 Seu nome">
+      <input class="campo" id="c-end" type="text" placeholder="📍 Endereço para entrega">
+      <textarea class="campo" id="c-obs" rows="2" placeholder="📝 Observações: tirar cebola, ponto da carne..."></textarea>
+    </div>
+    <div class="carda totais">
+      <div class="tl"><span>Subtotal</span><span id="s-sub">R$ 0,00</span></div>
+      <div class="tl"><span>Entrega</span><span class="gratis">GRÁTIS 🎉</span></div>
+      <div class="tl total"><span>Total</span><span id="s-total">R$ 0,00</span></div>
+    </div>
+  </div>
+  <div class="tela-rodape">
+    <button class="btn-preto central" id="btn-revisar">Revisar pedido →</button>
+  </div>
+</div>
+
+<!-- ============ TELA: RESUMO ============ -->
+<div class="tela" id="tela-resumo">
+  <div class="tela-cab">
+    <button class="volta" id="v-resumo">←</button>
+    <h3>Resumo do pedido ✅</h3>
+  </div>
+  <div class="tela-corpo">
+    <div class="numero-pedido">
+      <div>
+        <div class="rot">Número do pedido</div>
+        <div class="num" id="r-num">#0000</div>
+      </div>
+      <div style="font-size:2rem">🥗</div>
+    </div>
+    <div class="carda">
+      <h4>Itens do pedido</h4>
+      <div id="r-itens" class="totais"></div>
+      <div id="r-marmita"></div>
+    </div>
+    <div class="carda totais">
+      <div class="tl"><span>Subtotal</span><span id="r-sub">R$ 0,00</span></div>
+      <div class="tl"><span>Entrega</span><span class="gratis">GRÁTIS 🎉</span></div>
+      <div class="tl total"><span>Total</span><span id="r-total">R$ 0,00</span></div>
+    </div>
+    <div class="carda" style="font-size:.84rem;color:var(--suave)" id="r-cliente"></div>
+  </div>
+  <div class="tela-rodape">
+    <button class="btn-contorno" id="btn-editar">← Voltar e editar itens</button>
+    <button class="btn-zap" id="btn-zap">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.83 14.12c-.25.7-1.45 1.33-2.02 1.42-.52.08-1.17.11-1.89-.12-.44-.14-1-.32-1.71-.63-3.02-1.3-4.99-4.34-5.14-4.54-.15-.2-1.23-1.63-1.23-3.11 0-1.48.78-2.21 1.05-2.51.27-.3.6-.38.8-.38.2 0 .4 0 .57.01.18.01.43-.07.67.51.25.6.85 2.07.92 2.22.08.15.13.33.03.53-.1.2-.15.33-.3.5-.15.18-.32.4-.45.53-.15.15-.31.31-.13.61.18.3.79 1.31 1.71 2.12 1.17 1.05 2.16 1.37 2.47 1.53.3.15.48.13.66-.08.18-.2.75-.88.95-1.18.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.5.22.57.35.08.12.08.72-.18 1.42Z"/></svg>
+      Enviar pedido no WhatsApp
+    </button>
+  </div>
+</div>
+
+<!-- ============ MODAL: COMANDA ============ -->
+<div class="modal" id="modal-comanda">
+  <div class="modal-card">
+    <h3>Comanda gerada! 🧾</h3>
+    <p>Imagem no formato de impressora térmica 58/60mm. Envie no WhatsApp ou baixe para imprimir direto.</p>
+    <img id="comanda-img" alt="Comanda do pedido com itens, nome do cliente e valor total">
+    <button class="btn-zap" id="btn-compartilhar">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 7l5-4 5 4"/><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>
+      Compartilhar comanda
+    </button>
+    <button class="btn-contorno" id="btn-baixar-comanda" style="margin-bottom:10px">⬇️ Baixar imagem PNG</button>
+    <button class="btn-preto central" id="btn-concluir">Concluir →</button>
+  </div>
+</div>
+
+<div class="toast" id="toast">Adicionado! ✅</div>
+
+<!-- SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Sabor Natural",
+  "description": "Bistrô & Confeitaria fitness: marmitas, panqueca zero, crepioca, natubúrguer, tapiocas, cuscuz, sanduíches, doces fit e sucos naturais.",
+  "servesCuisine": ["Fitness", "Saudável", "Low Carb"],
+  "telephone": "+55-99-9233-8700",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua Bela Vista, Bairro Cândido Hermes",
+    "addressLocality": "Dom Pedro",
+    "addressRegion": "MA",
+    "postalCode": "65765-000",
+    "addressCountry": "BR"
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "07:00", "closes": "13:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "15:00", "closes": "20:00" }
+  ],
+  "sameAs": ["https://www.instagram.com/sabornaturalfit_dp", "https://wa.me/559992338700"]
+}
+</script>
+
+<script>
+/* ============================================================
+   ⚙️ CONFIG
+   ============================================================ */
+const CONFIG = {
+  whatsapp: "559992338700",
+  msgContato: "Olá! Vim pelo site do Sabor Natural 🥗"
+};
+
+/* ============================================================
+   🍽️ CARDÁPIO REAL
+   ============================================================ */
+const CATEGORIAS = [
+  {
+    id: "panqueca", nome: "Panqueca Zero", sub: "R$ 18,00",
+    imagem: "assets/panqueca.jpg", emoji: "🥞",
+    itens: [
+      { nome: "Panqueca Zero", desc: "Massa leve, recheada e gratinada. Escolha o sabor:",
+        sabores: [
+          { nome: "Carne com queijo", preco: 18.00 },
+          { nome: "Frango com queijo", preco: 18.00 }
+        ] }
+    ]
+  },
+  {
+    id: "crepioca", nome: "Crepioca", sub: "R$ 18,00",
+    imagem: "assets/crepioca.jpg", emoji: "🫓",
+    itens: [
+      { nome: "Crepioca", desc: "Crepe de tapioca com ovo, douradinho. Escolha o sabor:",
+        sabores: [
+          { nome: "Frango desfiado com queijo", preco: 18.00 },
+          { nome: "Carne desfiada com queijo", preco: 18.00 }
+        ] }
+    ]
+  },
+  {
+    id: "natuburguer", nome: "Natubúrguer", sub: "R$ 18,00",
+    imagem: "assets/natuburguer.jpg", emoji: "🍔",
+    itens: [
+      { nome: "Natubúrguer", desc: "Completinho e fit. Escolha o sabor:",
+        sabores: [
+          { nome: "Frango, queijo, ovo, alface, tomate e requeijão light", preco: 18.00 },
+          { nome: "Carne, queijo, ovo, alface, tomate e requeijão light", preco: 18.00 }
+        ] }
+    ]
+  },
+  {
+    id: "tapioca", nome: "Tapioca Recheada", sub: "a partir de R$ 14,00",
+    imagem: "assets/tapioca.jpg", emoji: "🌮",
+    itens: [
+      { nome: "Tapioca Recheada", desc: "Feita na hora, bem recheada. Escolha o sabor:",
+        sabores: [
+          { nome: "Frango com queijo e requeijão light", preco: 14.00 },
+          { nome: "Carne desfiada com queijo e requeijão light", preco: 15.00 }
+        ] }
+    ]
+  },
+  {
+    id: "cuscuz", nome: "Cuscuz Recheado", sub: "a partir de R$ 14,00",
+    imagem: "assets/cuscuz.jpg", emoji: "🌽",
+    itens: [
+      { nome: "Cuscuz Recheado", desc: "Tradição nordestina na versão fit. Escolha o sabor:",
+        sabores: [
+          { nome: "Frango com queijo", preco: 14.00 },
+          { nome: "Carne desfiada com queijo", preco: 15.00 }
+        ] }
+    ]
+  },
+  {
+    id: "sanduiches", nome: "Sanduíches", sub: "2 opções",
+    imagem: "assets/lanche.jpg", emoji: "🥪",
+    itens: [
+      { nome: "Sanduíche Sabor Pizza", desc: "Frango desfiado, queijo e tomate 🍕", preco: 17.00 },
+      { nome: "Sanduíche Natural", desc: "Leve e fresquinho, o clássico da casa.", preco: 12.00 }
+    ]
+  },
+  {
+    id: "doces", nome: "Doces Fit", sub: "2 delícias",
+    imagem: "assets/doce.jpg", emoji: "🍫",
+    itens: [
+      { nome: "Bolo de Banana", desc: "Fofinho e sem açúcar refinado. Escolha o tamanho:",
+        sabores: [
+          { nome: "Tamanho P", preco: 20.00 },
+          { nome: "Tamanho G", preco: 30.00 }
+        ] },
+      { nome: "Brownie Fit", desc: "Chocolate intenso na versão fit da casa 🍫", preco: 17.00 }
+    ]
+  },
+  {
+    id: "sucos", nome: "Sucos Naturais", sub: "a partir de R$ 8,00",
+    imagem: "assets/suco.jpg", emoji: "🥤",
+    itens: [
+      { nome: "Suco Verde", desc: "Detox refrescante, feito na hora.", preco: 10.00 },
+      { nome: "Suco Vermelho", desc: "Detox refrescante, feito na hora.", preco: 10.00 },
+      { nome: "Abacaxi com Hortelã", desc: "Refrescante e natural.", preco: 10.00 },
+      { nome: "Goiaba", desc: "Refrescante e natural.", preco: 8.00 },
+      { nome: "Caju", desc: "Refrescante e natural.", preco: 8.00 },
+      { nome: "Acerola", desc: "Refrescante e natural.", preco: 8.00 },
+      { nome: "Laranja", desc: "Refrescante e natural.", preco: 8.00 }
+    ]
+  }
+];
+const MARMITA = { nome: "Marmita do Dia", desc: "Marmita fit completa por R$ 25,00. O cardápio muda todo dia — ao enviar o pedido, a gente te manda o cardápio do dia no WhatsApp! 🍱", preco: 25.00, especial: "marmita", imagem: "assets/marmita.jpg" };
+
+/* ============================================================
+   Estado
+   ============================================================ */
+const fmt = v => v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+const $ = s => document.querySelector(s);
+
+let carrinho = [];
+try { carrinho = JSON.parse(localStorage.getItem("sn_carrinho") || "[]"); } catch(e) {}
+let numeroPedido = localStorage.getItem("sn_numero") || "";
+
+function salvar() { localStorage.setItem("sn_carrinho", JSON.stringify(carrinho)); }
+function garantirNumero() {
+  if (!numeroPedido) {
+    numeroPedido = "#" + Math.floor(1000 + Math.random() * 9000);
+    localStorage.setItem("sn_numero", numeroPedido);
+  }
+}
+const temMarmita = () => carrinho.some(i => i.especial === "marmita");
+const totalPedido = () => carrinho.reduce((s, i) => s + i.preco * i.qtd, 0);
+const qtdPedido = () => carrinho.reduce((s, i) => s + i.qtd, 0);
+const escapeHtml = s => s.replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function toast(msg) {
+  const t = $("#toast"); t.textContent = msg; t.classList.add("on");
+  clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove("on"), 1700);
+}
+function imgDe(item, cat) { return item.imagem || (cat ? cat.imagem : "assets/logo.jpg"); }
+
+/* Imagens específicas por item (fim das fotos repetidas) */
+const IMG_ITEM = {
+  "Sanduíche Sabor Pizza": "assets/sanduiche-pizza.jpg",
+  "Bolo de Banana":        "assets/bolo.jpg",
+  "Suco Verde":            "assets/suco.jpg",
+  "Suco Vermelho":         "assets/suco-vermelho.jpg",
+  "Acerola":               "assets/suco-vermelho.jpg",
+  "Goiaba":                "assets/suco-vermelho.jpg",
+  "Abacaxi com Hortelã":   "assets/suco-citrico.jpg",
+  "Laranja":               "assets/suco-citrico.jpg",
+  "Caju":                  "assets/suco-citrico.jpg"
+};
+CATEGORIAS.forEach(c => c.itens.forEach(it => { if (IMG_ITEM[it.nome]) it.imagem = IMG_ITEM[it.nome]; }));
+
+/* Mapa de busca */
+const INDICE = [];
+CATEGORIAS.forEach((c, ci) => c.itens.forEach((it, ii) => {
+  const txt = [c.nome, it.nome, it.desc, ...(it.sabores || []).map(s => s.nome)].join(" ").toLowerCase();
+  INDICE.push({ ci, ii, txt });
+}));
+
+/* ============================================================
+   Status aberto/fechado (Seg–Sáb 7–13 / 15–20 • Dom encomendas)
+   ============================================================ */
+function statusLoja() {
+  const a = new Date(), d = a.getDay(), h = a.getHours() + a.getMinutes() / 60;
+  if (d === 0) return { txt: "Hoje: apenas encomendas 📦", cls: "aviso" };
+  if (h >= 7 && h < 13)  return { txt: "Aberto agora · fecha 13h", cls: "aberto" };
+  if (h >= 13 && h < 15) return { txt: "Fechado · volta às 15h", cls: "fechado" };
+  if (h >= 15 && h < 20) return { txt: "Aberto agora · fecha 20h", cls: "aberto" };
+  if (h < 7)  return { txt: "Fechado · abre às 7h", cls: "fechado" };
+  return { txt: "Fechado · abre amanhã 7h", cls: "fechado" };
+}
+function renderStatus() {
+  const s = statusLoja(), el = $("#status-loja");
+  el.textContent = s.txt;
+  el.className = "status " + s.cls;
+}
+renderStatus();
+setInterval(renderStatus, 60000);
+
+/* ============================================================
+   Render: pills + menu (trilhos horizontais)
+   ============================================================ */
+const sec = $("#menu");
+const pills = $("#pills");
+
+pills.innerHTML =
+  `<button class="pill" data-alvo="cat-marmita">🍱 Marmitas</button>` +
+  CATEGORIAS.map(c => `<button class="pill" data-alvo="cat-${c.id}">${c.emoji} ${c.nome}</button>`).join("");
+
+function resumoSabores(it) {
+  if (!it.sabores) return "";
+  return it.sabores.map(s => s.nome.split(",")[0]).join(" • ");
+}
+function precoCard(it) {
+  if (!it.sabores) return fmt(it.preco);
+  const ps = it.sabores.map(s => s.preco), min = Math.min(...ps), max = Math.max(...ps);
+  return min === max ? fmt(min) : `<small>a partir de</small> ` + fmt(min);
+}
+
+sec.innerHTML = CATEGORIAS.map(c => `
+  <section id="cat-${c.id}" class="reveal">
+    <div class="titulos"><h2>${c.emoji} ${c.nome}</h2><span>${c.sub}</span></div>
+    <div class="trilho">
+      ${c.itens.map((it, ii) => `
+        <button class="card" data-ci="${CATEGORIAS.indexOf(c)}" data-ii="${ii}">
+          <div class="imagem">
+            <img src="${it.imagem || c.imagem}" alt="${it.nome} — Sabor Natural, comida fitness em Dom Pedro MA" loading="lazy">
+            <span class="mais">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            </span>
+          </div>
+          <div class="corpo">
+            <h3>${it.nome}</h3>
+            <p>${it.sabores ? resumoSabores(it) : it.desc}</p>
+            <div class="p-preco">${precoCard(it)}</div>
+          </div>
+        </button>`).join("")}
+    </div>
+  </section>`).join("");
+
+/* Abrir item ao clicar no card */
+sec.addEventListener("click", e => {
+  const card = e.target.closest("[data-ci]");
+  if (card) abrirItem(Number(card.dataset.ci), Number(card.dataset.ii));
+});
+pills.addEventListener("click", e => {
+  const p = e.target.closest("[data-alvo]");
+  if (!p) return;
+  const alvo = document.getElementById(p.dataset.alvo);
+  if (alvo) alvo.scrollIntoView({ behavior: "smooth" });
+});
+
+/* Pill ativa conforme a seção visível */
+const pd = {};
+document.querySelectorAll(".pill").forEach(p => pd[p.dataset.alvo] = p);
+const io = new IntersectionObserver(es => {
+  es.forEach(en => {
+    if (en.isIntersecting) {
+      Object.values(pd).forEach(p => p.classList.remove("ativa"));
+      const p = pd[en.target.id];
+      if (p) { p.classList.add("ativa"); p.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" }); }
+    }
+  });
+}, { rootMargin: "-140px 0px -60% 0px" });
+document.querySelectorAll("section[id^='cat-']").forEach(s => io.observe(s));
+
+/* Animação de entrada */
+const ioR = new IntersectionObserver(es => {
+  es.forEach(en => { if (en.isIntersecting) { en.target.classList.add("vis"); ioR.unobserve(en.target); } });
+}, { threshold: .08 });
+document.querySelectorAll(".reveal").forEach(el => ioR.observe(el));
+
+/* ============================================================
+   Busca
+   ============================================================ */
+const busca = $("#campo-busca"), resultados = $("#resultados"), wrap = $("#pills-wrap");
+busca.addEventListener("input", () => {
+  const q = busca.value.trim().toLowerCase();
+  $("#btn-limpar").classList.toggle("on", q.length > 0);
+  if (q.length < 2) {
+    resultados.classList.remove("on");
+    $("#menu").classList.remove("d-none");
+    $(".destaque").classList.remove("d-none");
+    wrap.classList.remove("d-none");
+    return;
+  }
+  const achados = INDICE.filter(x => x.txt.includes(q)).slice(0, 20);
+  $("#menu").classList.add("d-none");
+  $(".destaque").classList.add("d-none");
+  wrap.classList.add("d-none");
+  resultados.classList.add("on");
+  resultados.innerHTML = achados.length
+    ? achados.map(a => {
+        const c = CATEGORIAS[a.ci], it = c.itens[a.ii];
+        const preco = it.sabores ? "a partir de " + fmt(Math.min(...it.sabores.map(s => s.preco))) : fmt(it.preco);
+        return `<button class="res-linha" data-ci="${a.ci}" data-ii="${a.ii}">
+          <img src="${it.imagem || c.imagem}" alt="${it.nome}">
+          <div class="r"><strong>${it.nome}</strong><span>${it.sabores ? resumoSabores(it) : it.desc}</span></div>
+          <span class="pr">${preco}</span>
+        </button>`;
+      }).join("")
+    : `<div class="res-vazio">Nada encontrado para "<strong>${escapeHtml(q)}</strong>" 😕<br>Tente: tapioca, crepioca, suco, brownie...</div>`;
+});
+resultados.addEventListener("click", e => {
+  const l = e.target.closest("[data-ci]");
+  if (l) abrirItem(Number(l.dataset.ci), Number(l.dataset.ii));
+});
+$("#btn-limpar").addEventListener("click", () => {
+  busca.value = ""; busca.dispatchEvent(new Event("input")); busca.blur();
+});
+
+/* ============================================================
+   Folha do item
+   ============================================================ */
+const backdrop = $("#backdrop"), folha = $("#folha");
+let editando = null; // {cat, item, qtd, saborIdx}
+
+function abrirItem(ci, ii) {
+  const cat = CATEGORIAS[ci], item = cat.itens[ii];
+  editando = { cat, item, qtd: 1, saborIdx: 0 };
+  $("#f-img").src = imgDe(item, cat);
+  $("#f-nome").textContent = item.nome;
+  $("#f-desc").textContent = item.desc;
+  $("#f-aviso").innerHTML = item.especial === "marmita"
+    ? `<div class="aviso">🍱 Ao enviar o pedido, a gente te manda o <strong>cardápio do dia das marmitas</strong> no WhatsApp!</div>` : "";
+  $("#f-sabores").innerHTML = item.sabores ? `
+    <div class="grupo-titulo">Escolha o sabor / tamanho <small>OBRIGATÓRIO</small></div>
+    ${item.sabores.map((s, si) => `
+      <button class="opcao ${si === 0 ? "sel" : ""}" data-si="${si}">
+        <span class="circ"></span>
+        <span class="o-nome">${s.nome}</span>
+        <span class="o-preco">${fmt(s.preco)}</span>
+      </button>`).join("")}` : "";
+  $("#st-qtd").textContent = "1";
+  atualizarFolha();
+  backdrop.classList.add("on");
+  folha.classList.add("aberta");
+}
+function precoAtual() {
+  const it = editando.item;
+  return it.sabores ? it.sabores[editando.saborIdx].preco : it.preco;
+}
+function atualizarFolha() {
+  $("#f-preco").textContent = fmt(precoAtual());
+  $("#f-btn-preco").textContent = fmt(precoAtual() * editando.qtd);
+}
+$("#f-sabores").addEventListener("click", e => {
+  const o = e.target.closest("[data-si]");
+  if (!o) return;
+  editando.saborIdx = Number(o.dataset.si);
+  o.parentElement.querySelectorAll(".opcao").forEach(x => x.classList.remove("sel"));
+  o.classList.add("sel");
+  atualizarFolha();
+});
+$("#st-menos").addEventListener("click", () => { if (editando.qtd > 1) { editando.qtd--; $("#st-qtd").textContent = editando.qtd; atualizarFolha(); } });
+$("#st-mais").addEventListener("click", () => { editando.qtd++; $("#st-qtd").textContent = editando.qtd; atualizarFolha(); });
+
+$("#f-add").addEventListener("click", () => {
+  const it = editando.item;
+  const sabor = it.sabores ? it.sabores[editando.saborIdx] : null;
+  const nome = it.nome + (sabor ? ` (${sabor.nome})` : "");
+  adicionar({ nome, preco: sabor ? sabor.preco : it.preco, especial: it.especial, imagem: imgDe(it, editando.cat) }, editando.qtd);
+  fecharFolha();
+});
+function fecharFolha() { folha.classList.remove("aberta"); backdrop.classList.remove("on"); }
+$("#f-fechar").addEventListener("click", fecharFolha);
+backdrop.addEventListener("click", fecharFolha);
+
+/* Destaque marmita */
+$("#card-marmita").addEventListener("click", () => {
+  editando = { cat: null, item: MARMITA, qtd: 1, saborIdx: 0 };
+  $("#f-img").src = MARMITA.imagem;
+  $("#f-nome").textContent = MARMITA.nome;
+  $("#f-desc").textContent = MARMITA.desc;
+  $("#f-aviso").innerHTML = `<div class="aviso">🍱 Ao enviar o pedido, a gente te manda o <strong>cardápio do dia das marmitas</strong> no WhatsApp!</div>`;
+  $("#f-sabores").innerHTML = "";
+  $("#st-qtd").textContent = "1";
+  atualizarFolha();
+  backdrop.classList.add("on");
+  folha.classList.add("aberta");
+});
+
+/* ============================================================
+   Sacola
+   ============================================================ */
+function adicionar(item, qtd = 1) {
+  const ex = carrinho.find(c => c.nome === item.nome);
+  if (ex) ex.qtd += qtd; else carrinho.push({ ...item, qtd });
+  salvar(); atualizarUI(true); toast("Adicionado ao pedido! ✅");
+}
+function mudarQtd(nome, d) {
+  const it = carrinho.find(c => c.nome === nome);
+  if (!it) return;
+  it.qtd += d;
+  if (it.qtd <= 0) carrinho = carrinho.filter(c => c.nome !== nome);
+  salvar(); atualizarUI(); renderSacola();
+}
+function atualizarUI(pulse = false) {
+  const q = qtdPedido(), b = $("#badge");
+  b.textContent = q; b.classList.toggle("on", q > 0);
+  if (pulse && q > 0) { b.classList.remove("pulse"); void b.offsetWidth; b.classList.add("pulse"); }
+  $("#barra").classList.toggle("on", q > 0);
+  $("#barra-qtd").textContent = q + (q === 1 ? " item" : " itens");
+  $("#barra-total").textContent = fmt(totalPedido());
+}
+
+const telaSacola = $("#tela-sacola"), telaResumo = $("#tela-resumo");
+function renderSacola() {
+  const cont = $("#sacola-itens");
+  if (!carrinho.length) {
+    cont.innerHTML = `<div class="vazio-s"><div class="grande">🥗</div>Sua sacola está vazia<br>Adicione algo gostoso do cardápio!</div>`;
+  } else {
+    cont.innerHTML = carrinho.map(i => `
+      <div class="linha-sacola">
+        <img src="${i.imagem || 'assets/logo.jpg'}" alt="">
+        <div class="ls"><strong>${i.nome}</strong><span>${fmt(i.preco)} cada</span></div>
+        <div class="mini-step">
+          <button data-a="-" data-n="${encodeURIComponent(i.nome)}">−</button>
+          <span>${i.qtd}</span>
+          <button data-a="+" data-n="${encodeURIComponent(i.nome)}">+</button>
+        </div>
+      </div>`).join("");
+  }
+  $("#carda-aviso-marmita").style.display = carrinho.length && temMarmita() ? "block" : "none";
+  $("#s-sub").textContent = fmt(totalPedido());
+  $("#s-total").textContent = fmt(totalPedido());
+}
+$("#sacola-itens").addEventListener("click", e => {
+  const b = e.target.closest("button[data-a]");
+  if (b) mudarQtd(decodeURIComponent(b.dataset.n), b.dataset.a === "+" ? 1 : -1);
+});
+function abrirSacola() { renderSacola(); restaurarCampos(); telaSacola.classList.add("aberta"); }
+$("#btn-sacola").addEventListener("click", abrirSacola);
+$("#barra").addEventListener("click", abrirSacola);
+$("#v-sacola").addEventListener("click", () => telaSacola.classList.remove("aberta"));
+
+/* Persistência simples de nome/endereço */
+function restaurarCampos() {
+  try {
+    const c = JSON.parse(localStorage.getItem("sn_cliente") || "{}");
+    $("#c-nome").value = c.nome || ""; $("#c-end").value = c.end || "";
+  } catch(e) {}
+}
+["#c-nome", "#c-end"].forEach(sel => $(sel).addEventListener("input", () => {
+  localStorage.setItem("sn_cliente", JSON.stringify({ nome: $("#c-nome").value, end: $("#c-end").value }));
+}));
+
+/* ============================================================
+   Resumo
+   ============================================================ */
+$("#btn-revisar").addEventListener("click", () => {
+  if (!carrinho.length) { toast("Sacola vazia 🙂"); return; }
+  garantirNumero(); montarResumo();
+  telaSacola.classList.remove("aberta");
+  telaResumo.classList.add("aberta");
+});
+$("#v-resumo").addEventListener("click", () => { telaResumo.classList.remove("aberta"); abrirSacola(); });
+$("#btn-editar").addEventListener("click", () => { telaResumo.classList.remove("aberta"); abrirSacola(); });
+
+function montarResumo() {
+  $("#r-num").textContent = numeroPedido;
+  $("#r-itens").innerHTML = carrinho.map(i => `
+    <div class="tl"><span>${i.qtd}x ${i.nome}</span><span style="font-weight:800">${fmt(i.preco * i.qtd)}</span></div>`).join("");
+  $("#r-marmita").innerHTML = temMarmita()
+    ? `<div class="resumo-msg">🍱 <strong>Marmita:</strong> o cardápio do dia será enviado pra você no WhatsApp!</div>` : "";
+  $("#r-sub").textContent = fmt(totalPedido());
+  $("#r-total").textContent = fmt(totalPedido());
+  const nome = $("#c-nome").value.trim(), end = $("#c-end").value.trim(), obs = $("#c-obs").value.trim();
+  let info = "";
+  if (nome) info += `👤 <strong>Nome:</strong> ${escapeHtml(nome)}<br>`;
+  if (end)  info += `📍 <strong>Entrega:</strong> ${escapeHtml(end)}<br>`;
+  if (obs)  info += `📝 <strong>Obs:</strong> ${escapeHtml(obs)}`;
+  $("#r-cliente").innerHTML = info || "💡 Você também pode informar nome e endereço direto no WhatsApp.";
+}
+
+/* ============================================================
+   🧾 COMANDA — imagem PNG no formato de impressora térmica 58/60mm
+   (WhatsApp não permite anexar imagem via link, então a comanda
+   é gerada aqui e enviada com 1 toque pelo compartilhamento nativo)
+   ============================================================ */
+let blobComanda = null;
+
+function gerarComanda(nome, end, obs) {
+  const W = 576, M = 30;                 // ~58/60mm de largura útil
+  const cvs = document.createElement("canvas");
+  const g = cvs.getContext("2d");
+  const F = (px, w) => `${w || 400} ${px}px "Archivo", Arial, sans-serif`;
+  const ops = []; let y = M + 6;
+  const med = (t, f) => { g.font = f; return g.measureText(t).width; };
+  const wrap = (t, f, maxW) => {
+    const out = []; let cur = "";
+    t.split(" ").forEach(p => { const tt = cur ? cur + " " + p : p; if (med(tt, f) > maxW && cur) { out.push(cur); cur = p; } else cur = tt; });
+    if (cur) out.push(cur); return out;
+  };
+  const linha = (t, px, w, align, extra) => {
+    const f = F(px, w);
+    wrap(t, f, W - 2 * M).forEach(l => { y += px; ops.push({ t: l, f, align: align || "left", y }); y += (extra == null ? 6 : extra); });
+  };
+  const dupla = (esq, dir, px, w) => { y += px; ops.push({ dl: esq, dr: dir, f: F(px, w || 700), y }); y += 8; };
+  const dash = () => { y += 4; ops.push({ dash: true, y }); y += 12; };
+
+  const agora = new Date();
+  const data = agora.toLocaleDateString("pt-BR") + " " + agora.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" });
+
+  linha("SABOR NATURAL", 34, 900, "center");
+  linha("comida fitness • Dom Pedro-MA", 20, 600, "center");
+  dash();
+  linha("COMANDA DE PEDIDO", 24, 800, "center");
+  linha(numeroPedido, 46, 900, "center");
+  linha(data, 20, 400, "center");
+  dash();
+  if (nome) linha("Cliente:  " + nome, 22, 700);
+  if (end)  linha("Entrega: " + end, 22, 400);
+  if (obs)  linha("Obs: " + obs, 22, 400);
+  if (nome || end || obs) dash();
+  carrinho.forEach(i => {
+    const total = fmt(i.preco * i.qtd);
+    const f = F(22, 700);
+    const maxW = W - 2 * M - med(total, F(22, 800)) - 16;
+    const linhasI = wrap(`${i.qtd}x ${i.nome}`, f, maxW);
+    y += 22; ops.push({ t: linhasI[0], f, align: "left", y }); ops.push({ dr: total, f: F(22, 800), y }); y += 7;
+    linhasI.slice(1).forEach(l => { y += 22; ops.push({ t: l, f, align: "left", y }); y += 7; });
+  });
+  dash();
+  dupla("Entrega", "GRÁTIS", 24, 700);
+  dupla("TOTAL", fmt(totalPedido()), 34, 900);
+  if (temMarmita()) { dash(); linha("** ENVIAR CARDÁPIO DO DIA DAS MARMITAS **", 21, 800, "center"); }
+  dash();
+  linha("Obrigado pela preferência!", 22, 600, "center");
+  linha("WhatsApp (99) 9233-8700", 20, 400, "center");
+  y += M;
+
+  cvs.width = W; cvs.height = Math.ceil(y);
+  const r = cvs.getContext("2d");
+  r.fillStyle = "#fff"; r.fillRect(0, 0, W, cvs.height);
+  ops.forEach(o => {
+    if (o.dash) { r.fillStyle = "#000"; for (let xx = M; xx < W - M; xx += 14) r.fillRect(xx, o.y, 8, 3); return; }
+    r.font = o.f; r.fillStyle = "#000";
+    if (o.dr !== undefined) { r.textAlign = "right"; r.fillText(o.dr, W - M, o.y); }
+    if (o.dl !== undefined || o.t) { r.textAlign = (o.align === "center") ? "center" : "left"; r.fillText(o.dl !== undefined ? o.dl : o.t, o.align === "center" ? W / 2 : M, o.y); }
+  });
+  cvs.toBlob(b => { blobComanda = b; $("#comanda-img").src = URL.createObjectURL(b); }, "image/png");
+}
+
+/* Envio WhatsApp */
+$("#btn-zap").addEventListener("click", () => {
+  const nome = $("#c-nome").value.trim(), end = $("#c-end").value.trim(), obs = $("#c-obs").value.trim();
+  const num = numeroPedido;
+  let msg = `🥗 *NOVO PEDIDO ${numeroPedido} — Sabor Natural*\n\n`;
+  carrinho.forEach(i => msg += `${i.qtd}x ${i.nome} — ${fmt(i.preco * i.qtd)}\n`);
+  if (temMarmita()) msg += `\n🍱 *MARMITA: por favor, me envie o cardápio do dia das marmitas!*\n`;
+  msg += `\n——————————————\nSubtotal: ${fmt(totalPedido())}\nEntrega: *GRÁTIS* 🎉\n*TOTAL: ${fmt(totalPedido())}*`;
+  if (nome) msg += `\n\n👤 Nome: ${nome}`;
+  if (end)  msg += `\n📍 Endereço: ${end}`;
+  if (obs)  msg += `\n📝 Obs: ${obs}`;
+  msg += `\n\n🧾 _A comanda em imagem será enviada a seguir._`;
+  window.open("https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(msg), "_blank");
+
+  // Gera a comanda (antes de limpar) e abre o modal
+  gerarComanda(nome, end, obs);
+  $("#modal-comanda").dataset.num = num.replace("#", "");
+  $("#modal-comanda").classList.add("on");
+  // Limpa a sacola para o próximo pedido
+  carrinho = []; numeroPedido = "";
+  localStorage.removeItem("sn_carrinho"); localStorage.removeItem("sn_numero");
+  atualizarUI(); telaResumo.classList.remove("aberta");
+});
+
+/* Compartilhar / baixar a comanda */
+$("#btn-compartilhar").addEventListener("click", async () => {
+  if (!blobComanda) return;
+  const arq = new File([blobComanda], "comanda-" + ($("#modal-comanda").dataset.num || "pedido") + ".png", { type: "image/png" });
+  if (navigator.canShare && navigator.canShare({ files: [arq] })) {
+    try { await navigator.share({ files: [arq], title: "Comanda do pedido" }); return; }
+    catch (e) { if (e.name === "AbortError") return; }
+  }
+  $("#btn-baixar-comanda").click(); // fallback: baixa a imagem
+});
+$("#btn-baixar-comanda").addEventListener("click", () => {
+  if (!blobComanda) return;
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blobComanda);
+  a.download = "comanda-" + ($("#modal-comanda").dataset.num || "pedido") + ".png";
+  a.click(); toast("Comanda baixada! 🧾");
+});
+$("#btn-concluir").addEventListener("click", () => {
+  location.href = "obrigado.html?n=" + ($("#modal-comanda").dataset.num || "");
+});
+
+/* WhatsApp flutuante */
+$("#wpp-flutuante").addEventListener("click", e => {
+  e.preventDefault();
+  window.open("https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(CONFIG.msgContato), "_blank");
+});
+
+atualizarUI();
+</script>
+</body>
+</html>
