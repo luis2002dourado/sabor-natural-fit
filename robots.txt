@@ -4,5 +4,6 @@ User-agent: *
 Allow: /
 Disallow: /obrigado.html
 Disallow: /404.html
+Disallow: /fontes.html
 
 Sitemap: https://luis2002dourado.github.io/sabor-natural-fit/sitemap.xml
