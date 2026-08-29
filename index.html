@@ -559,12 +559,45 @@ details .corpo{padding:0 16px 15px;font-size:.88rem;color:var(--suave);animation
   .btn-hero-preto:hover,.btn-preto:hover,.btn-zap:hover,.btn-branco:hover{transform:translateY(-1px)}
   .insta:hover{background:#262626}
 }
-@media(min-width:760px){
+/* ============================================================
+   RESPONSIVO — tablet e desktop
+   No celular nada muda (o site continua o "app" de 560px).
+   A partir daqui a mesma disposição (header → busca → pills →
+   hero → cardápio) simplesmente se expande para a tela maior.
+   ============================================================ */
+
+/* ---- Tablet ---- */
+@media(min-width:600px){
+  .app{max-width:840px}
+  .hero{padding:52px 32px 46px}
+  .trilho{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;overflow:visible;padding:12px 18px 24px}
+  .card{max-width:none;width:100%}
+  .card .imagem{height:150px}
+  .pills{flex-wrap:wrap;overflow:visible}
+  .promo{margin:20px 18px}
+  .secao{padding:34px 22px}
+  .folha,.tela{max-width:640px}
+}
+
+/* ---- Desktop ---- */
+@media(min-width:1024px){
   body{background:linear-gradient(180deg,#efefe9,#e3e4dd)}
-  .app{box-shadow:0 0 80px rgba(0,0,0,.10)}
-  .trilho{display:grid;grid-template-columns:repeat(3,1fr);overflow:visible;padding:10px 16px 20px}
-  .card{flex:none;max-width:none;width:100%}
-  .dest-card img{height:240px}
+  .app{max-width:1180px;box-shadow:0 0 90px rgba(0,0,0,.10)}
+  header{padding:14px 26px}
+  .busca{max-width:700px;margin:0 auto}
+  .pills{justify-content:center}
+  .hero{padding:76px 52px;text-align:left}
+  .hero h1{font-size:2.1rem}
+  .hero .sub{margin:12px 0 18px;max-width:56ch}
+  .hero-meta{justify-content:flex-start}
+  .hero-cta{justify-content:flex-start}
+  .promo{margin:24px 20px}
+  .trilho{grid-template-columns:repeat(3,1fr);padding:14px 20px 28px}
+  .card .imagem{height:170px}
+  .dest-foto img{height:260px}
+  .secao{padding:42px 24px}
+  .folha,.tela{max-width:680px}
+  footer{padding:40px 28px 52px}
 }
 
 /* ============================================================
