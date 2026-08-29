@@ -195,10 +195,10 @@ header{
 .destaque{padding:8px 16px 4px}
 .dest-card{
   position:relative;border-radius:20px;overflow:hidden;box-shadow:var(--sombra-forte);
-  background:var(--preto);color:#fff;
+  background:#fff;border:1px solid var(--linha);
 }
 .dest-foto{position:relative}
-.dest-foto img{height:172px;width:100%;object-fit:cover;display:block;transition:transform .5s var(--ease)}
+.dest-foto img{height:180px;width:100%;object-fit:cover;display:block;transition:transform .5s var(--ease)}
 .dest-card:active .dest-foto img{transform:scale(1.03)}
 .selo{
   position:absolute;top:12px;left:12px;background:#ffd54a;color:#3f2d00;
@@ -206,17 +206,17 @@ header{
   padding:6px 12px;border-radius:999px;box-shadow:0 2px 8px rgba(0,0,0,.25);
 }
 .dest-info{padding:16px 18px 18px}
-.dest-info h2{font-size:1.3rem;font-weight:900;letter-spacing:-.02em;color:#fff}
-.dest-info .preco{font-size:1.08rem;font-weight:900;color:#8ef0b8;margin-top:4px;font-family:var(--mono)}
-.dest-info p{font-size:.84rem;color:#d8d8d8;margin:6px 0 8px;line-height:1.45}
-.dest-info .entrega{font-size:.74rem;color:#9fe8c0;font-weight:800;font-family:var(--mono);letter-spacing:.01em}
-.dest-info .btn-branco{margin-top:12px}
-.btn-branco{
-  display:inline-flex;align-items:center;gap:7px;background:#fff;color:var(--preto);
-  font-weight:800;font-size:.86rem;padding:11px 18px;border-radius:999px;
+.dest-info h2{font-size:1.25rem;font-weight:900;letter-spacing:-.02em;color:var(--texto)}
+.dest-info .preco{font-size:1.1rem;font-weight:900;color:var(--verde);margin-top:2px;font-family:var(--mono)}
+.dest-info p{font-size:.84rem;color:var(--suave);margin:6px 0 8px;line-height:1.45}
+.dest-info .entrega{font-size:.76rem;color:var(--suave);font-weight:700}
+.dest-info .btn-branco{
+  display:flex;align-items:center;justify-content:center;gap:7px;width:100%;
+  background:var(--preto);color:#fff;font-weight:800;font-size:.9rem;
+  padding:13px 18px;border-radius:14px;margin-top:12px;
   transition:transform .12s var(--ease);
 }
-.btn-branco:active{transform:scale(.95)}
+.dest-info .btn-branco:active{transform:scale(.97)}
 
 /* ---------- Seções de categoria ---------- */
 .titulos{padding:18px 16px 10px;display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px dashed var(--linha);margin-bottom:2px}
