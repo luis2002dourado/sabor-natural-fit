@@ -217,9 +217,9 @@ header{
 .btn-branco:active{transform:scale(.95)}
 
 /* ---------- Seções de categoria ---------- */
-.titulos{padding:20px 16px 6px;display:flex;align-items:baseline;justify-content:space-between}
+.titulos{padding:18px 16px 10px;display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px dashed var(--linha);margin-bottom:2px}
 .titulos h2{font-size:1.25rem;font-weight:900;letter-spacing:-.02em}
-.titulos span{font-size:.76rem;color:var(--suave);font-weight:600}
+.titulos span{font-size:.72rem;color:var(--verde);font-weight:700;font-family:var(--mono);letter-spacing:.02em}
 
 /* Trilho horizontal estilo Uber Eats */
 .trilho{
@@ -465,16 +465,23 @@ footer .cred{margin-top:16px;font-size:.72rem;color:#7c7c7c;text-align:center}
 .totais .tl{display:flex;justify-content:space-between;font-size:.9rem;padding:5px 0;color:var(--texto)}
 .totais .gratis{color:var(--verde);font-weight:900}
 .totais .total{
-  border-top:2px solid var(--linha);margin-top:8px;padding-top:12px;
+  border-top:2px dashed var(--linha);margin-top:8px;padding-top:12px;
   font-size:1.2rem;font-weight:900;letter-spacing:-.01em;
 }
 
 .numero-pedido{
-  display:flex;justify-content:space-between;align-items:center;
-  background:var(--pastel-claro);border-radius:14px;padding:14px 16px;margin-bottom:14px;
+  position:relative;display:flex;justify-content:space-between;align-items:center;
+  background:var(--pastel-claro);border:1.5px dashed #9ec9a6;border-radius:14px;padding:14px 18px;margin-bottom:14px;
 }
-.numero-pedido .rot{font-size:.7rem;color:var(--suave);text-transform:uppercase;letter-spacing:.12em;font-weight:800}
-.numero-pedido .num{font-size:1.4rem;font-weight:900;color:var(--verde);letter-spacing:.02em}
+/* furos laterais: bilhete de comanda destacável */
+.numero-pedido::before,.numero-pedido::after{
+  content:"";position:absolute;top:50%;width:16px;height:16px;margin-top:-8px;border-radius:50%;
+  background:var(--cinza);border:1.5px solid #9ec9a6;
+}
+.numero-pedido::before{left:-9px}
+.numero-pedido::after{right:-9px}
+.numero-pedido .rot{font-size:.7rem;color:var(--suave);text-transform:uppercase;letter-spacing:.18em;font-weight:800;font-family:var(--mono)}
+.numero-pedido .num{font-size:1.4rem;font-weight:900;color:var(--verde);letter-spacing:.02em;font-family:var(--mono)}
 .resumo-msg{
   font-size:.82rem;color:var(--verde);background:var(--pastel-claro);
   border-radius:12px;padding:11px 13px;font-weight:700;margin-top:10px;
@@ -557,6 +564,24 @@ details .corpo{padding:0 16px 15px;font-size:.88rem;color:var(--suave);animation
   .card{flex:none;max-width:none;width:100%}
   .dest-card img{height:240px}
 }
+
+/* ============================================================
+   ASSINATURA "COMANDA"
+   O pedido é um cupom: preço e número em tipografia de ticket,
+   fios tracejados de rasgo e bilhete destacável no resumo.
+   ============================================================ */
+:root{--mono:ui-monospace,"SF Mono","Cascadia Mono","Segoe UI Mono","Roboto Mono",Menlo,Consolas,"Liberation Mono",monospace}
+/* valores que são "da comanda" */
+.p-preco,.dest-info .preco,.f-preco,.o-preco,.res-linha .pr,
+#barra-total,#barra-qtd,#f-btn-preco,
+#s-sub,#s-total,#r-sub,#r-total,
+.totais .total span,
+.totais .tl span:last-child{font-family:var(--mono);font-variant-numeric:tabular-nums}
+/* rótulo do hero vira "cabeçalho de cupom" */
+.hero .eyebrow{font-family:var(--mono);font-weight:700}
+/* títulos de seção com fio de rasgo */
+.secao h2{display:flex;align-items:baseline;gap:10px}
+.secao h2::after{content:"";flex:1;border-top:2px dashed var(--linha);transform:translateY(-4px)}
 
 </style>
 </head>
