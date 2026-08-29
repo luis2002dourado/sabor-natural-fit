@@ -195,20 +195,22 @@ header{
 .destaque{padding:8px 16px 4px}
 .dest-card{
   position:relative;border-radius:20px;overflow:hidden;box-shadow:var(--sombra-forte);
-  background:var(--preto);
+  background:var(--preto);color:#fff;
 }
-.dest-card img{height:190px;width:100%;object-fit:cover;opacity:.92;transition:transform .6s var(--ease)}
-.dest-card:active img{transform:scale(1.04)}
-.dest-gradiente{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 30%,rgba(0,0,0,.78))}
+.dest-foto{position:relative}
+.dest-foto img{height:172px;width:100%;object-fit:cover;display:block;transition:transform .5s var(--ease)}
+.dest-card:active .dest-foto img{transform:scale(1.03)}
 .selo{
   position:absolute;top:12px;left:12px;background:#ffd54a;color:#3f2d00;
   font-size:.7rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase;
-  padding:6px 12px;border-radius:999px;
+  padding:6px 12px;border-radius:999px;box-shadow:0 2px 8px rgba(0,0,0,.25);
 }
-.dest-info{position:absolute;left:16px;right:16px;bottom:14px;color:#fff}
-.dest-info h2{font-size:1.3rem;font-weight:900;letter-spacing:-.02em}
-.dest-info .preco{font-size:1.05rem;font-weight:900;color:#8ef0b8;margin-top:2px}
-.dest-info p{font-size:.8rem;color:#e3e3e3;margin:4px 0 10px}
+.dest-info{padding:16px 18px 18px}
+.dest-info h2{font-size:1.3rem;font-weight:900;letter-spacing:-.02em;color:#fff}
+.dest-info .preco{font-size:1.08rem;font-weight:900;color:#8ef0b8;margin-top:4px;font-family:var(--mono)}
+.dest-info p{font-size:.84rem;color:#d8d8d8;margin:6px 0 8px;line-height:1.45}
+.dest-info .entrega{font-size:.74rem;color:#9fe8c0;font-weight:800;font-family:var(--mono);letter-spacing:.01em}
+.dest-info .btn-branco{margin-top:12px}
 .btn-branco{
   display:inline-flex;align-items:center;gap:7px;background:#fff;color:var(--preto);
   font-weight:800;font-size:.86rem;padding:11px 18px;border-radius:999px;
@@ -645,15 +647,16 @@ details .corpo{padding:0 16px 15px;font-size:.88rem;color:var(--suave);animation
   <section class="destaque reveal" id="cat-marmita">
     <div class="carda" style="padding:0;overflow:hidden">
       <div class="dest-card" id="card-marmita">
-        <img src="assets/marmita.jpg" alt="Marmita do Dia">
-        <span class="selo">🔥 Nosso foco</span>
-        <div class="dest-gradiente"></div>
+        <div class="dest-foto">
+          <img src="assets/marmita.jpg" alt="Marmita do Dia — marmita fit do Sabor Natural">
+          <span class="selo">🔥 Nosso foco</span>
+        </div>
         <div class="dest-info">
           <h2>Marmita do Dia</h2>
           <div class="preco">R$ 25,00</div>
           <p>O cardápio muda todo dia — a gente te manda no WhatsApp! 🍱</p>
           <div class="entrega">🕒 25–40 min • entrega grátis em Dom Pedro</div>
-          <span class="btn-branco" style="margin-top:10px">Adicionar
+          <span class="btn-branco">Adicionar
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
           </span>
         </div>
