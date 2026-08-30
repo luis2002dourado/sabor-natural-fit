@@ -13,6 +13,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<!-- Monitor de produção (observabilidade): request IDs, erros c/ stack, logs JSON, health check, cache hit/miss e métricas -->
+<script src="assets/monitor.js"></script>
 
 <!-- ===== SEO ON-PAGE ===== -->
 <meta name="keywords" content="marmita fit, comida saudável, low carb, suco detox, tapioca fit, cuscuz, Dom Pedro, Maranhão, entrega grátis">
@@ -1108,6 +1110,7 @@ function garantirNumero() {
   if (!numeroPedido) {
     numeroPedido = "#SN-" + Date.now().toString(36).toUpperCase();
     localStorage.setItem("sn_numero", numeroPedido);
+    if (window.SNmonitor) SNmonitor.log("info", "order_created", "número de pedido gerado", { pedido: numeroPedido });
   }
 }
 const temMarmita = () => carrinho.some(i => i.especial === "marmita");
@@ -1686,6 +1689,7 @@ $("#btn-zap").addEventListener("click", () => {
   pedidoNum = numeroPedido;
   abrirWhatsApp();
   pedidoEnviado = true;
+  if (window.SNmonitor) SNmonitor.log("info", "checkout", "pedido aberto no WhatsApp", { pedido: pedidoNum, itens: carrinho.length, total: totalPedido() });
   $("#btn-zap").style.display = "none";
   $("#envio-pos").style.display = "block";
 });

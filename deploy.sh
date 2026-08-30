@@ -32,6 +32,21 @@ sed -i "s|content=\"assets/og.jpg\"|content=\"${BASE}/assets/og.jpg\"|g" index.h
 grep -q 'rel="canonical"' index.html || \
   sed -i "s|<link rel=\"icon\" href=\"assets/logo.jpg\">|<link rel=\"icon\" href=\"assets/logo.jpg\">\n<link rel=\"canonical\" href=\"${BASE}/\">\n<meta property=\"og:url\" content=\"${BASE}/\">|" index.html
 
+echo "4/6 — Atualizando health.json (versão + data do deploy)..."
+python3 - <<'PY'
+import json, datetime
+p = "health.json"
+try:
+    d = json.load(open(p, encoding="utf-8"))
+    now = datetime.datetime.now(datetime.timezone.utc)
+    d["version"] = now.strftime("%Y-%m-%d")
+    d["lastDeploy"] = now.strftime("%Y-%m-%dT%H:%M:%SZ")
+    json.dump(d, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+    print("   → health.json atualizado")
+except Exception as e:
+    print("   → health.json não atualizado:", e)
+PY
+
 echo "4/6 — Commitando o código (sem .env — protegido pelo .gitignore)..."
 [ -d .git ] || git init -q -b main
 git config user.email "site@sabor-natural.local" >/dev/null
@@ -49,6 +64,27 @@ api -X POST "https://api.github.com/repos/${LOGIN}/${REPO}/pages" \
 
 URL="${BASE}/"
 echo ""
-echo "🎉 Pronto! Build do Pages leva ~1 minuto."
+echo "7/7 — Smoke test no site publicado + rollback automático..."
+CODE="000"
+for i in $(seq 1 12); do
+  sleep 10
+  CODE=$(curl -s -o /dev/null -w "%{http_code}" "$URL" || true)
+  [ "$CODE" = "200" ] && break
+done
+SMOKE_OK=0
+if [ "$CODE" = "200" ]; then
+  HTML=$(curl -s "$URL" || true)
+  if echo "$HTML" | grep -q 'id="btn-zap"' && echo "$HTML" | grep -q 'versão'; then SMOKE_OK=1; fi
+fi
+if [ "$SMOKE_OK" != "1" ]; then
+  echo "❌ Smoke test FALHOU (HTTP $CODE) — revertendo o deploy..."
+  git revert HEAD --no-edit >/dev/null 2>&1 || true
+  git push -q "https://x-access-token:${GIT_TOKEN}@github.com/${LOGIN}/${REPO}.git" HEAD:main
+  echo "↩️  Rollback concluído. Último commit revertido."
+  exit 1
+fi
+echo "✅ Smoke test ok (HTTP 200 + marcadores do site presentes)."
+
+echo "🎉 Pronto! Deploy concluído e verificado."
 echo "➡️  SEU SITE: $URL"
-echo "   (aguarde o build e atualize a página; se der 404 no primeiro minuto, é normal)"
+echo "   (se der 404 no primeiro minuto, é o build do Pages terminando)"

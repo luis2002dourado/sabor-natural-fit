@@ -27,6 +27,9 @@ pass('Carrega sem erro de rede', (await page.title()).includes('Sabor Natural'),
 const status = await page.locator('#status-loja').textContent();
 pass('Status aberto/fechado renderizado', /[Aa]berto|[Ff]echado|[Ee]ncomendas/.test(status), status.trim());
 
+const mon = await page.evaluate(() => ({ m: !!window.SNmonitor, h: window.SN_HEALTH ? window.SN_HEALTH.status : null }));
+pass('Monitor carregado e health ok', mon.m && mon.h === 'ok', 'health=' + mon.h);
+
 await page.fill('#campo-busca', 'marmita');
 await page.waitForTimeout(200);
 const resTxt = await page.locator('#resultados').textContent();

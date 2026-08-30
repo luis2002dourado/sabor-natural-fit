@@ -39,6 +39,8 @@ Carrinho em `localStorage`. Checkout via `wa.me`. GitHub Pages (branch `main`, r
 
 ## Comandos
 - Validar: `bash validate.sh`
+- Monitoramento/debugging: ver `MONITORING.md` (10 regras DevOps mapeadas). No console:
+  `SNmonitor.report()` (logs JSON), `SNmonitor.health()` (estado), `SNmonitor.config({webhook})` (alertas).
 - Teste E2E (navegador real): `BASE=http://localhost:8000/index.html node qa/e2e.mjs`
   (requer `npm i -D playwright && npx playwright install chromium`; cobre busca→folha→
   adicionar→sacola→validação→resumo→nº único→excluir item, e falha se houver erro de console/JS)

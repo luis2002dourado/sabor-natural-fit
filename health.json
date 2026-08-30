@@ -1,0 +1,19 @@
+{
+  "service": "sabor-natural-fit",
+  "environment": "production",
+  "version": "2026-08-30",
+  "status": "ok",
+  "type": "static",
+  "endpoints": [
+    { "path": "/", "name": "site", "method": "GET" },
+    { "path": "/health.json", "name": "health-check", "method": "GET" }
+  ],
+  "checks": {
+    "assets": "ok",
+    "deploy": "built",
+    "csp": "meta-http-equiv",
+    "https": "enforced-by-github-pages"
+  },
+  "contact": { "whatsapp": "559992338700", "instagram": "sabornaturalfit_dp" },
+  "lastDeploy": "2026-08-30T00:00:00Z"
+}
