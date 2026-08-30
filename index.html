@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Sabor Natural — Comida Fitness | Dom Pedro, MA</title>
-<meta name="description" content="Bistrô & Confeitaria fitness em Dom Pedro, MA: marmitas, panqueca zero, crepioca, natubúrguer, tapiocas, cuscuz, sanduíches, doces fit e sucos. Entrega GRÁTIS — peça pelo WhatsApp!">
+<meta name="description" content="Bistrô & Confeitaria fitness em Dom Pedro, MA: marmitas, panqueca zero, crepioca, natubúrguer, tapiocas, cuscuz, sanduíches, doces fitness e sucos. Entrega GRÁTIS — peça pelo WhatsApp!">
 <meta name="theme-color" content="#141414">
 <link rel="icon" href="assets/favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -675,7 +675,7 @@ details .corpo{padding:0 16px 15px;font-size:.88rem;color:var(--suave);animation
   <section class="hero reveal">
     <p class="eyebrow">Bistrô & Confeitaria Fitness</p>
     <h1>Comida saudável com <span>entrega grátis</span> 🛵</h1>
-    <p class="sub">Marmitas, lanches low carb, doces fit e sucos detox — feitos na hora em Dom Pedro-MA.</p>
+    <p class="sub">Marmitas, lanches low carb, doces fitness e sucos detox — feitos na hora em Dom Pedro-MA.</p>
     <div class="hero-meta">
       <span class="chip"><span class="dot"></span> Entrega grátis</span>
       <span class="chip">📍 Dom Pedro — MA</span>
@@ -711,7 +711,7 @@ details .corpo{padding:0 16px 15px;font-size:.88rem;color:var(--suave);animation
         <div class="dest-info">
           <h2>Marmita do Dia</h2>
           <div class="preco">R$ 25,00</div>
-          <p>O cardápio muda todo dia — a gente te manda no WhatsApp! 🍱</p>
+          <p>O cardápio muda todo dia — lhe mandamos no WhatsApp! 🍱</p>
           <div class="entrega">🕒 25–40 min • entrega grátis em Dom Pedro</div>
           <span class="btn-branco">Adicionar
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
@@ -960,7 +960,7 @@ details .corpo{padding:0 16px 15px;font-size:.88rem;color:var(--suave);animation
   "@context": "https://schema.org",
   "@type": "Restaurant",
   "name": "Sabor Natural",
-  "description": "Bistrô & Confeitaria fitness: marmitas, panqueca zero, crepioca, natubúrguer, tapiocas, cuscuz, sanduíches, doces fit e sucos naturais.",
+  "description": "Bistrô & Confeitaria fitness: marmitas, panqueca zero, crepioca, natubúrguer, tapiocas, cuscuz, sanduíches, doces fitness e sucos naturais.",
   "servesCuisine": ["Fitness", "Saudável", "Low Carb"],
   "telephone": "+55-99-9233-8700",
   "address": {
@@ -1059,7 +1059,7 @@ const CATEGORIAS = [
     ]
   },
   {
-    id: "doces", nome: "Doces Fit", sub: "2 delícias",
+    id: "doces", nome: "Doces Fitness", sub: "2 delícias",
     imagem: "assets/doce.jpg", emoji: "🍫",
     itens: [
       { nome: "Bolo de Banana", desc: "Fofinho e sem açúcar refinado. Escolha o tamanho:",
@@ -1084,7 +1084,7 @@ const CATEGORIAS = [
     ]
   }
 ];
-const MARMITA = { nome: "Marmita do Dia", desc: "Marmita fit completa por R$ 25,00. O cardápio muda todo dia — ao enviar o pedido, a gente te manda o cardápio do dia no WhatsApp! 🍱", preco: 25.00, especial: "marmita", imagem: "assets/marmita.jpg" };
+const MARMITA = { nome: "Marmita do Dia", desc: "Marmita fit completa por R$ 25,00. O cardápio muda todo dia — ao enviar o pedido, lhe mandamos o cardápio do dia no WhatsApp! 🍱", preco: 25.00, especial: "marmita", imagem: "assets/marmita.jpg" };
 
 /* ============================================================
    Estado
@@ -1364,7 +1364,7 @@ function abrirItem(ci, ii) {
   $("#f-nome").textContent = item.nome;
   $("#f-desc").textContent = item.desc;
   $("#f-aviso").innerHTML = item.especial === "marmita"
-    ? `<div class="aviso">🍱 Ao enviar o pedido, a gente te manda o <strong>cardápio do dia das marmitas</strong> no WhatsApp!</div>` : "";
+    ? `<div class="aviso">🍱 Ao enviar o pedido, lhe mandamos o <strong>cardápio do dia das marmitas</strong> no WhatsApp!</div>` : "";
   $("#f-sabores").innerHTML = item.sabores ? `
     <div class="grupo-titulo">Escolha o sabor / tamanho <small>OBRIGATÓRIO</small></div>
     ${item.sabores.map((s, si) => `
@@ -1436,7 +1436,7 @@ function abrirMarmita() {
   $("#f-img").src = MARMITA.imagem;
   $("#f-nome").textContent = MARMITA.nome;
   $("#f-desc").textContent = MARMITA.desc;
-  $("#f-aviso").innerHTML = `<div class="aviso">🍱 Ao enviar o pedido, a gente te manda o <strong>cardápio do dia das marmitas</strong> no WhatsApp!</div>`;
+  $("#f-aviso").innerHTML = `<div class="aviso">🍱 Ao enviar o pedido, lhe mandamos o <strong>cardápio do dia das marmitas</strong> no WhatsApp!</div>`;
   $("#f-sabores").innerHTML = "";
   $("#f-sugestoes").innerHTML = renderSugestoes(editando.cat, editando.item);
   $("#st-qtd").textContent = "1";
@@ -1490,7 +1490,7 @@ function quickAdd(cat, item) {
   const preco = sabor ? sabor.preco : item.preco;
   adicionar({ nome, preco, especial: item.especial, imagem: imgDe(item, cat) }, 1);
   renderSacola();
-  toast(item.nome + " adicionado ✅");
+  toast("Adicionado: " + item.nome + " ✅");
 }
 $("#f-sugestoes").addEventListener("click", e => {
   const b = e.target.closest("[data-sci]");
