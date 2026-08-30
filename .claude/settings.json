@@ -1,0 +1,26 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if echo \"$CLAUDE_FILE_PATHS\" | grep -qE '\\.env$'; then echo '⚠️ .env contém segredos — não edite nem inclua em commits.'; fi"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if echo \"$CLAUDE_FILE_PATHS\" | grep -qE '\\.(html|js|mjs)$'; then bash \"$CLAUDE_PROJECT_DIR\"/validate.sh >/dev/null 2>&1 || echo '⚠️ Validação falhou — rode /check'; fi"
+          }
+        ]
+      }
+    ]
+  }
+}
