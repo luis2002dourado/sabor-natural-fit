@@ -39,6 +39,9 @@ Carrinho em `localStorage`. Checkout via `wa.me`. GitHub Pages (branch `main`, r
 
 ## Comandos
 - Validar: `bash validate.sh`
+- Teste E2E (navegador real): `BASE=http://localhost:8000/index.html node qa/e2e.mjs`
+  (requer `npm i -D playwright && npx playwright install chromium`; cobre busca→folha→
+  adicionar→sacola→validação→resumo→nº único→excluir item, e falha se houver erro de console/JS)
 - Preview local: `python3 -m http.server 8000 --bind 0.0.0.0`
 - Deploy: `bash deploy.sh` (token vem do `.env`)
 - Commit manual:
