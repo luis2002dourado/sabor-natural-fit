@@ -66,6 +66,11 @@
   --sombra:0 2px 14px rgba(0,0,0,.09);
   --sombra-forte:0 12px 34px rgba(0,0,0,.18);
   --ease:cubic-bezier(.22,.9,.3,1);
+  /* Curvas oficiais do Motion (motion.dev), extraídas via MCP */
+  --ease-out:cubic-bezier(.33,1,.68,1);       /* Motion easeOut — entradas */
+  --ease-pop:cubic-bezier(.34,1.56,.64,1);    /* Motion backOut — mola do toque */
+  --ease-settle:cubic-bezier(0,.71,.2,1.01);  /* Motion — settle suave (overshoot sutil) */
+  --ease-inout:cubic-bezier(.65,0,.35,1);     /* Motion easeInOut */
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
@@ -84,7 +89,7 @@ section{scroll-margin-top:180px}
 @media(max-width:600px){.app{box-shadow:none}}
 
 /* ---------- Animações de entrada ---------- */
-.reveal{opacity:0;transform:translateY(16px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .5s var(--ease-out),transform .5s var(--ease-out)}
 .reveal.vis{opacity:1;transform:none}
 @keyframes pulse{0%{transform:scale(1)}40%{transform:scale(1.35)}100%{transform:scale(1)}}
 @keyframes desliza{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
@@ -326,7 +331,7 @@ footer .cred{margin-top:16px;font-size:.72rem;color:#7c7c7c;text-align:center}
   width:min(92vw,520px);background:var(--preto);color:#fff;
   display:flex;align-items:center;justify-content:space-between;gap:10px;
   padding:15px 20px;border-radius:999px;box-shadow:var(--sombra-forte);
-  transition:transform .35s var(--ease);font-weight:800;font-size:.92rem;
+  transition:transform .4s var(--ease-pop);font-weight:800;font-size:.92rem;
 }
 .barra.on{transform:translate(-50%,0)}
 .barra .b-qtd{background:#fff;color:var(--preto);border-radius:999px;padding:3px 11px;font-size:.8rem}
@@ -352,7 +357,7 @@ footer .cred{margin-top:16px;font-size:.72rem;color:#7c7c7c;text-align:center}
   position:fixed;left:0;right:0;bottom:0;z-index:80;background:#fff;
   max-width:560px;margin:0 auto;max-height:92vh;border-radius:22px 22px 0 0;
   display:flex;flex-direction:column;overflow:hidden;
-  transform:translateY(103%);transition:transform .34s var(--ease);
+  transform:translateY(103%);transition:transform .38s var(--ease-settle);
   box-shadow:0 -14px 50px rgba(0,0,0,.3);
 }
 .folha.aberta{transform:translateY(0)}
@@ -412,7 +417,7 @@ footer .cred{margin-top:16px;font-size:.72rem;color:#7c7c7c;text-align:center}
 .tela{
   position:fixed;inset:0;z-index:90;background:var(--cinza);
   max-width:560px;margin:0 auto;display:flex;flex-direction:column;
-  transform:translateY(100%);transition:transform .34s var(--ease);
+  transform:translateY(100%);transition:transform .38s var(--ease-settle);
 }
 .tela.aberta{transform:translateY(0)}
 .tela-cab{
@@ -504,7 +509,7 @@ footer .cred{margin-top:16px;font-size:.72rem;color:#7c7c7c;text-align:center}
   position:fixed;left:50%;bottom:130px;transform:translate(-50%,18px);z-index:99;
   background:var(--preto);color:#fff;padding:12px 24px;border-radius:999px;
   font-size:.85rem;font-weight:700;opacity:0;pointer-events:none;
-  transition:all .28s var(--ease);white-space:nowrap;box-shadow:var(--sombra-forte);
+  transition:all .28s var(--ease-pop);white-space:nowrap;box-shadow:var(--sombra-forte);
 }
 .toast.on{opacity:1;transform:translate(-50%,0)}
 
@@ -617,6 +622,25 @@ details .corpo{padding:0 16px 15px;font-size:.88rem;color:var(--suave);animation
 /* títulos de seção com fio de rasgo */
 .secao h2{display:flex;align-items:baseline;gap:10px}
 .secao h2::after{content:"";flex:1;border-top:2px dashed var(--linha);transform:translateY(-4px)}
+
+/* ============================================================
+   MOTION — toque com mola + revelação escalonada (Motion Studio)
+   Toque: encolhe rápido. Solta: volta com overshoot (backOut).
+   Cards da seção entram um após o outro (staggerChildren).
+   ============================================================ */
+.card,.pill,.btn-sacola,.btn-preto,.btn-zap,.btn-hero-preto,.btn-rota,.btn-contorno,
+.sug,.seg-btn,.volta,.f-fechar,.stepper button,.mini-step button{
+  transition:transform .4s var(--ease-pop),box-shadow .3s var(--ease-out),
+             background .2s var(--ease-out),border-color .2s var(--ease-out),color .2s var(--ease-out);
+}
+.card:active,.pill:active,.btn-sacola:active,.btn-preto:active,.btn-zap:active,
+.btn-hero-preto:active,.btn-rota:active,.btn-contorno:active,.sug:active,.seg-btn:active,
+.volta:active,.f-fechar:active,.stepper button:active,.mini-step button:active{
+  transform:scale(.96);transition-duration:.05s;
+}
+/* Entrada escalonada dos cards dentro de cada trilho */
+@keyframes cardIn{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
+.vis .trilho .card{animation:cardIn .5s var(--ease-out) backwards;animation-delay:var(--d,0ms)}
 
 </style>
 </head>
@@ -1253,7 +1277,14 @@ document.querySelectorAll("section[id^='cat-']").forEach(s => io.observe(s));
 
 /* Animação de entrada */
 const ioR = new IntersectionObserver(es => {
-  es.forEach(en => { if (en.isIntersecting) { en.target.classList.add("vis"); ioR.unobserve(en.target); } });
+  es.forEach(en => {
+    if (en.isIntersecting) {
+      en.target.classList.add("vis");
+      /* stagger (Motion staggerChildren): cada card entra com atraso progressivo */
+      en.target.querySelectorAll(".trilho .card").forEach((c, i) => c.style.setProperty("--d", (i * 55) + "ms"));
+      ioR.unobserve(en.target);
+    }
+  });
 }, { threshold: .08 });
 document.querySelectorAll(".reveal").forEach(el => ioR.observe(el));
 
