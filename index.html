@@ -442,6 +442,12 @@ footer .cred{margin-top:16px;font-size:.72rem;color:#7c7c7c;text-align:center}
 .linha-sacola .ls{flex:1;min-width:0}
 .linha-sacola .ls strong{display:block;font-size:.88rem;font-weight:800;line-height:1.3}
 .linha-sacola .ls span{font-size:.76rem;color:var(--suave)}
+.linha-sacola .del{
+  width:32px;height:32px;border-radius:50%;flex-shrink:0;
+  display:grid;place-items:center;color:#c0392b;background:#fdeeee;
+  transition:transform .4s var(--ease-pop),background .2s var(--ease-out);
+}
+.linha-sacola .del:active{transform:scale(.9);background:#fbdcdc}
 .mini-step{display:flex;align-items:center;gap:10px;flex-shrink:0}
 .mini-step button{
   width:28px;height:28px;border-radius:50%;background:var(--cinza-2);
@@ -1539,6 +1545,9 @@ function renderSacola() {
           <span>${i.qtd}</span>
           <button data-a="+" data-n="${encodeURIComponent(i.nome)}">+</button>
         </div>
+        <button class="del" data-del="${encodeURIComponent(i.nome)}" aria-label="Remover ${escapeHtml(i.nome)} do pedido">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>
+        </button>
       </div>`).join("");
   }
   $("#carda-aviso-marmita").style.display = carrinho.length && temMarmita() ? "block" : "none";
@@ -1564,8 +1573,17 @@ $("#leve-itens").addEventListener("click", e => {
 });
 $("#sacola-itens").addEventListener("click", e => {
   const b = e.target.closest("button[data-a]");
-  if (b) mudarQtd(decodeURIComponent(b.dataset.n), b.dataset.a === "+" ? 1 : -1);
+  if (b) { mudarQtd(decodeURIComponent(b.dataset.n), b.dataset.a === "+" ? 1 : -1); return; }
+  const d = e.target.closest("button[data-del]");
+  if (d) removerItem(decodeURIComponent(d.dataset.del));
 });
+/* Excluir item da sacola (independente da quantidade) */
+function removerItem(nome) {
+  const it = carrinho.find(c => c.nome === nome);
+  carrinho = carrinho.filter(c => c.nome !== nome);
+  salvar(); atualizarUI(); renderSacola();
+  if (it) toast("Removido: " + it.nome + " 🗑");
+}
 /* PRIVACIDADE: nome/endereço NUNCA são salvos — campos iniciam sempre limpos */
 function abrirSacola() { renderSacola(); abrirOverlay(); telaSacola.classList.add("aberta"); }
 $("#btn-sacola").addEventListener("click", abrirSacola);
