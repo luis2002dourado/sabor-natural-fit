@@ -52,8 +52,12 @@
 <style>
 :root{
   --preto:#141414;          /* botões e títulos, estilo Uber Eats */
-  --verde:#008e3a;          /* verde da marca */
-  --verde-vivo:#06a94d;     /* verde de status/chegada */
+  --verde:#008e3a;          /* verde da marca (500) • oklch(56.4% 0.161 148.6) • P3: color(display-p3 0 0.557 0.227) */
+  --verde-texto:#01732e;    /* verde 600 (escala oficial) p/ TEXTO sobre fundo claro — WCAG AA 6.0:1 */
+  --verde-vivo:#06a94d;     /* verde de status/chegada (só decorativo: dot, ícone) */
+  /* Escala monocromática oficial da marca (colorsandfonts):
+     50 #dfffe1 • 100 #aafeb5 • 200 #7bec8f • 300 #5bcc72 • 400 #36ab54
+     500 #008e3a • 600 #01732e • 700 #025d24 • 800 #05481b • 900 #023412 • 950 #002203 */
   --pastel:#a5d1a0;         /* pastel da logo */
   --pastel-claro:#edf6ea;
   --cinza:#f6f6f6;
@@ -133,7 +137,7 @@ header{
 .btn-sacola:active{transform:scale(.92)}
 .btn-sacola .badge{
   position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;border-radius:999px;
-  background:var(--verde-vivo);color:#fff;font-size:.7rem;font-weight:800;
+  background:var(--verde-texto);color:#fff;font-size:.7rem;font-weight:800;
   display:grid;place-items:center;padding:0 5px;border:2px solid #fff;
   opacity:0;transform:scale(.5);transition:all .25s var(--ease);
 }
@@ -150,7 +154,7 @@ header{
 .busca input{
   flex:1;border:none;background:none;outline:none;font-size:.95rem;font-family:inherit;
 }
-.busca input::placeholder{color:#9a9a94}
+.busca input::placeholder{color:#6b6b6b}
 .busca .limpar{display:none;color:var(--suave);font-size:1rem;padding:0 2px}
 .busca .limpar.on{display:block}
 
@@ -214,7 +218,7 @@ header{
 }
 .dest-info{padding:16px 18px 18px}
 .dest-info h2{font-size:1.25rem;font-weight:900;letter-spacing:-.02em;color:var(--texto)}
-.dest-info .preco{font-size:1.1rem;font-weight:900;color:var(--verde);margin-top:2px;font-family:var(--mono)}
+.dest-info .preco{font-size:1.1rem;font-weight:900;color:var(--verde-texto);margin-top:2px;font-family:var(--mono)}
 .dest-info p{font-size:.84rem;color:var(--suave);margin:6px 0 8px;line-height:1.45}
 .dest-info .entrega{font-size:.76rem;color:var(--suave);font-weight:700}
 .dest-info .btn-branco{
@@ -228,7 +232,7 @@ header{
 /* ---------- Seções de categoria ---------- */
 .titulos{padding:18px 16px 10px;display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px dashed var(--linha);margin-bottom:2px}
 .titulos h2{font-size:1.25rem;font-weight:900;letter-spacing:-.02em}
-.titulos span{font-size:.72rem;color:var(--verde);font-weight:700;font-family:var(--mono);letter-spacing:.02em}
+.titulos span{font-size:.72rem;color:var(--verde-texto);font-weight:700;font-family:var(--mono);letter-spacing:.02em}
 
 /* Trilho horizontal estilo Uber Eats */
 .trilho{
@@ -295,7 +299,7 @@ header{
 .sug img{width:44px;height:44px;border-radius:10px;object-fit:cover;flex-shrink:0}
 .sug .s-txt{flex:1;min-width:0}
 .sug .s-txt strong{display:block;font-size:.78rem;font-weight:800;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.sug .s-txt small{font-size:.74rem;color:var(--verde);font-weight:800}
+.sug .s-txt small{font-size:.74rem;color:var(--verde-texto);font-weight:800}
 .sug .s-add{width:26px;height:26px;border-radius:50%;background:var(--preto);color:#fff;display:grid;place-items:center;font-size:1rem;font-weight:700;flex-shrink:0}
 
 /* ---------- Como pedir (3 passos) ---------- */
@@ -372,11 +376,11 @@ footer .cred{margin-top:16px;font-size:.72rem;color:#7c7c7c;text-align:center}
 }
 .folha .f-corpo{flex:1;overflow-y:auto;padding:18px 20px 14px;animation:desliza .4s var(--ease)}
 .folha .f-corpo h2{font-size:1.3rem;font-weight:900;letter-spacing:-.02em}
-.folha .f-corpo .f-preco{font-size:1.05rem;font-weight:800;color:var(--verde);margin:4px 0 8px}
+.folha .f-corpo .f-preco{font-size:1.05rem;font-weight:800;color:var(--verde-texto);margin:4px 0 8px}
 .folha .f-corpo .f-desc{font-size:.88rem;color:var(--suave);margin-bottom:16px}
 .aviso{
   background:var(--pastel-claro);border-radius:12px;padding:12px 14px;
-  font-size:.84rem;color:var(--verde);font-weight:700;margin-bottom:14px;
+  font-size:.84rem;color:var(--verde-texto);font-weight:700;margin-bottom:14px;
 }
 .grupo-titulo{font-size:.84rem;font-weight:900;letter-spacing:.02em;margin-bottom:10px;display:flex;justify-content:space-between}
 .grupo-titulo small{background:var(--cinza-2);border-radius:6px;padding:2px 8px;font-size:.68rem;color:var(--suave);font-weight:700}
@@ -478,7 +482,7 @@ footer .cred{margin-top:16px;font-size:.72rem;color:#7c7c7c;text-align:center}
 .vazio-s .grande{font-size:2.6rem;margin-bottom:8px}
 
 .totais .tl{display:flex;justify-content:space-between;font-size:.9rem;padding:5px 0;color:var(--texto)}
-.totais .gratis{color:var(--verde);font-weight:900}
+.totais .gratis{color:var(--verde-texto);font-weight:900}
 .totais .total{
   border-top:2px dashed var(--linha);margin-top:8px;padding-top:12px;
   font-size:1.2rem;font-weight:900;letter-spacing:-.01em;
@@ -496,9 +500,9 @@ footer .cred{margin-top:16px;font-size:.72rem;color:#7c7c7c;text-align:center}
 .numero-pedido::before{left:-9px}
 .numero-pedido::after{right:-9px}
 .numero-pedido .rot{font-size:.7rem;color:var(--suave);text-transform:uppercase;letter-spacing:.18em;font-weight:800;font-family:var(--mono)}
-.numero-pedido .num{font-size:1.4rem;font-weight:900;color:var(--verde);letter-spacing:.02em;font-family:var(--mono)}
+.numero-pedido .num{font-size:1.4rem;font-weight:900;color:var(--verde-texto);letter-spacing:.02em;font-family:var(--mono)}
 .resumo-msg{
-  font-size:.82rem;color:var(--verde);background:var(--pastel-claro);
+  font-size:.82rem;color:var(--verde-texto);background:var(--pastel-claro);
   border-radius:12px;padding:11px 13px;font-weight:700;margin-top:10px;
 }
 .btn-zap{
@@ -543,7 +547,7 @@ footer .cred{margin-top:16px;font-size:.72rem;color:#7c7c7c;text-align:center}
 details{background:#fff;border:1px solid var(--linha);border-radius:14px;margin-bottom:10px;overflow:hidden}
 summary{list-style:none;cursor:pointer;padding:15px 16px;font-weight:800;font-size:.92rem;display:flex;justify-content:space-between;align-items:center;gap:10px}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";font-size:1.25rem;font-weight:700;color:var(--verde);transition:transform .22s var(--ease);flex-shrink:0}
+summary::after{content:"+";font-size:1.25rem;font-weight:700;color:var(--verde-texto);transition:transform .22s var(--ease);flex-shrink:0}
 details[open] summary::after{transform:rotate(45deg)}
 details .corpo{padding:0 16px 15px;font-size:.88rem;color:var(--suave);animation:desliza .25s var(--ease)}
 
@@ -852,7 +856,7 @@ details .corpo{padding:0 16px 15px;font-size:.88rem;color:var(--suave);animation
     <h2 id="f-nome">Item</h2>
     <div class="f-preco" id="f-preco"></div>
     <p class="f-desc" id="f-desc"></p>
-    <p style="font-size:.68rem;color:#9a9a94;margin:-10px 0 14px">📷 imagem ilustrativa</p>
+    <p style="font-size:.68rem;color:#6b6b6b;margin:-10px 0 14px">📷 imagem ilustrativa</p>
     <div id="f-aviso"></div>
     <div id="f-sabores"></div>
     <div id="f-sugestoes"></div>
@@ -912,7 +916,7 @@ details .corpo{padding:0 16px 15px;font-size:.88rem;color:var(--suave);animation
       <div class="tl"><span>Subtotal</span><span id="s-sub">R$ 0,00</span></div>
       <div class="tl"><span>Entrega</span><span class="gratis">GRÁTIS 🎉</span></div>
       <div class="tl total"><span>Total</span><span id="s-total">R$ 0,00</span></div>
-      <div style="font-size:.74rem;color:var(--verde);font-weight:700;margin-top:8px">💚 Sem taxa e sem pedido mínimo — pode pedir mais sem medo!</div>
+      <div style="font-size:.74rem;color:var(--verde-texto);font-weight:700;margin-top:8px">💚 Sem taxa e sem pedido mínimo — pode pedir mais sem medo!</div>
     </div>
   </div>
   <div class="tela-rodape">

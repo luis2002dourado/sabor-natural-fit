@@ -26,6 +26,9 @@ Carrinho em `localStorage`. Checkout via `wa.me`. GitHub Pages (branch `main`, r
 - **Sem placeholder de Google Analytics** (`G-XXXXXXXXXX` proibido). Se ligar: ID real + aviso LGPD.
 - **Imagens meramente ilustrativas** — manter os avisos ("📷 imagem ilustrativa").
 - **Fonte:** Nunito (500–900) no corpo; valores/preços em `--mono` (assinatura "comanda").
+- **Paleta (escala oficial da marca, colorsandfonts):** `--verde:#008e3a` (500) para preenchimentos e bordas;
+  `--verde-texto:#01732e` (600) para TEXTO sobre fundo claro (WCAG AA 6.0:1). Escala completa 50–950 no comentário do `:root`.
+  Contrastes verificados via MCP colorsandfonts (WCAG 2.1 + APCA).
 - **Nunca commitar `.env`** (contém `GIT_TOKEN`). Já está no `.gitignore`.
 - Após cada mudança de conteúdo: validar (`bash validate.sh`) e **publicar** (commit + push).
 - Git: `user.email site@sabor-natural.local` / `user.name Sabor Natural` (configurar antes de commitar).
